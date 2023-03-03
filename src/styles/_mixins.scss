@@ -1,0 +1,39 @@
+@import './fonts';
+@import './colors';
+
+@mixin titles ($size, $color) {
+    font-family: $font-roboto;
+    font-weight: 300;
+    font-size: $size;
+    color: $color;
+}
+
+%highlightBtns {
+    transition: .1s;
+    color: $main-dark;
+    border: none;
+    border-radius: 5px; 
+}
+
+@mixin additionalBtns () {
+    font-size: 20px;
+    letter-spacing: 1px;
+
+    border: solid 1px white;
+    border-radius: 3px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    color: #FFFFFF;
+
+    padding: 15px 17px;
+
+        &:hover {
+            @extend %highlightBtns;
+            background-color: $main-orange; 
+        }
+
+        &:focus {
+            @extend %highlightBtns;
+            background-color: #FFFFFF;
+        }
+}

@@ -1,0 +1,34 @@
+@import '../../../../../../styles/colors';
+
+.contacts {
+    width: 50%;
+}
+
+.contact-card__title {
+    margin-bottom: 20px;
+}
+
+.contact-card {
+    padding-top: 18px;
+}
+
+.contact-card__wrapper {
+    display: flex;
+    align-items: center;
+    max-width: 300px;
+}
+
+.icon__wrapper {
+    width: 30px;
+    height: 30px;
+}
+
+.contact-card__icon {
+    object-fit: cover;
+}
+
+.contact-card__description {
+    font-size: 18px;
+    color: white;
+    margin-left: 26px;
+}

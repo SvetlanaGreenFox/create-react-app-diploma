@@ -1,0 +1,12 @@
+@import '../../styles/colors';
+@import '../../styles/fonts';
+
+.footerSection {
+    background-color: $main-dark;
+    font-family: $font-roboto;
+    color: white;
+}
+
+.footerSection__logo-wrapper {
+    border-top: solid 1px white;
+}

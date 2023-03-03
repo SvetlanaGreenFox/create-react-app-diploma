@@ -1,0 +1,18 @@
+@import "../../../../../styles/colors";
+@import "../../../../../styles/fonts";
+
+.sloganWrapper {
+    width: 50%;
+    padding: 20px;
+}
+
+.title {
+    color: white;
+    font-family: $font-roboto;
+    font-size: 4vw;
+    font-weight: 100;
+}
+
+.title_highlight {
+    font-weight: 900;
+}

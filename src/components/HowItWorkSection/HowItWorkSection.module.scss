@@ -1,0 +1,12 @@
+@import "../../styles/fonts";
+
+.howItWorkSection {
+    padding: 100px 80px;
+
+    background-blend-mode: multiply;
+    background: url(../../assets/main-back.png) no-repeat center center;
+    background-size: cover;
+    background-color: rgb(255, 168, 0, 1);
+
+    font-family: $font-roboto;
+}

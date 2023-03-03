@@ -1,0 +1,20 @@
+// @import "../../styles/fonts";
+@import "../../../../styles/colors";
+
+.aboutSectionContent {
+    display: flex;
+    max-width: 1320px;
+    margin: 0 auto;
+}
+
+.aboutDescription {
+    padding-left: 9px;
+    border-left: thick solid $main-orange;
+}
+
+.aboutDescription__item {
+    margin-bottom: 10px;
+}
+.aboutDescription__item_bold {
+    font-weight: bold;
+}
