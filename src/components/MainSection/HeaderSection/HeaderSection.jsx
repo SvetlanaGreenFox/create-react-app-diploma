@@ -1,16 +1,12 @@
-// import SloganTitle from "./components/SloganTitle";
-// import SearchForm from "./components/SearchForm";
-// import MainWrapper from "./components/index";
 import styles from "./HeaderSection.module.scss";
-import SearchForm from "./SearchForm";
-import SloganTitle from "./SloganTitle";
+import cx from 'classnames';
 
-const HeaderSection = () => {
+const HeaderSection = (props) => {
+    console.log(props.mainStyles);
     return(
-        <section className={styles['header-section']}>
+        <section className={cx(styles['header-section'], props.mainStyles)}>
             <div className={styles['header-section__content']}>
-                <SloganTitle />
-                <SearchForm />
+                {props.children}
             </div>
         </section>
     ) 

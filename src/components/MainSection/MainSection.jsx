@@ -1,4 +1,4 @@
-import TicketsPage from '../OrderPages/TicketsPage';
+import OrderSection from '../OrderSection';
 import MainPage from "./MainPage"; 
 
 import styles from "./MainSection.module.scss";
@@ -30,7 +30,7 @@ const MainSection = () => {
 
         <Routes>
             <Route path='/' exact element={ <MainPage elem={state} /> }/>
-            <Route path='/tickets' element={ <TicketsPage /> }/>
+            <Route path='/tickets' element={ <OrderSection /> }/>
         </Routes>
         </div>
     );

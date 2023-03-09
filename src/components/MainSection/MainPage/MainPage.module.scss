@@ -22,7 +22,6 @@
     background-color: $main-dark; 
 }
 
-
 .navigator__list {
     height: auto;
 }
@@ -37,4 +36,10 @@
 
 .navigator__item_active{
     font-weight: bold;
+}
+
+.header {
+    background: url(../../../assets/main-back.png) no-repeat center center;
+    background-color: rgba(255, 168, 0, 1);
+    height: 947px;
 }
