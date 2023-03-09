@@ -1,0 +1,35 @@
+@import '../../../styles/colors';
+
+.steps {
+    width: 100%;
+    height: 100px;
+
+    display: flex;
+    // flex-direction: row;
+    justify-content: center;
+    position: relative;
+}
+
+.steps-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    background-color: $main-orange;
+
+    margin-right: 10px;
+}
+
+.steps-item-1::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-top: 100px solid red;
+    border-bottom: 400px solid black;
+}

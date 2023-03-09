@@ -1,0 +1,9 @@
+@import '../../../styles/mixins';
+
+.orderHeader {
+    @include headerStyles();
+
+    height: 660px;
+    background: url(../../../assets/orderpage.jpg) no-repeat center center;
+    background-color: rgb(118, 116, 112, 0.6);
+}
