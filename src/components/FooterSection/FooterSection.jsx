@@ -5,7 +5,7 @@ import styles from './FooterSection.module.scss';
 
 const FooterSection = () => {
     return (
-        <footer className={styles.footerSection}>
+        <footer id='contacts' className={styles.footerSection}>
             <div>
                 <ContactsSection />
             </div>

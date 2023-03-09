@@ -1,3 +1,3 @@
-import { MainContent } from "./MainContent";
+import { HeaderSection } from "./HeaderSection";
 
-export default MainContent;
+export default HeaderSection;

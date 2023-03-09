@@ -5,7 +5,7 @@ import styles from "./HowItWorkSection.module.scss";
 
 const HowItWorkSection = () => {
     return (
-        <section className={styles.howItWorkSection}>
+        <section id='howItWork' className={styles.howItWorkSection}>
             <HowItWorkHeader />
             <HowItWorkContent />
         </section>

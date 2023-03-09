@@ -1,5 +1,6 @@
 import { useState } from "react";
 import DatePicker from "react-datepicker";
+import { NavLink } from "react-router-dom";
 
 import styles from "./SearchForm.module.scss";
 import "react-datepicker/dist/react-datepicker.css";
@@ -48,7 +49,9 @@ const SearchForm = () => {
                 </div>
             </div>
         <div className={styles.searchForm__btnWrapper}>
-            <button type="submit" className={styles.searchForm__btn}>Найти билеты</button>
+            <button type="submit" className={styles.searchForm__btn}>
+                <NavLink to='/tickets'>Найти билеты</NavLink>
+            </button>
         </div>
     </form>
 }

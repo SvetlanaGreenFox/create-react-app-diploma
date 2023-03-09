@@ -1,18 +1,17 @@
 // import SloganTitle from "./components/SloganTitle";
 // import SearchForm from "./components/SearchForm";
 import MainWrapper from "./components/index";
-import styles from "./MainContent.module.scss";
+import styles from "./HeaderSection.module.scss";
 
-const MainContent = () => {
+const HeaderSection = () => {
     return(
         <section className={styles.mainContent}>
-            {/* <SloganTitle/>
-            <SearchForm /> */}
             <MainWrapper/>
+            <div className={styles.mainContent__wrapper}></div>
         </section>
     ) 
         
     
 }
 
-export { MainContent };
+export { HeaderSection };

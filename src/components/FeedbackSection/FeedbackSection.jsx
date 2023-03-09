@@ -5,7 +5,7 @@ import styles from './FeedbackSection.module.scss';
 
 const FeedbackSection = () => {
     return (
-        <section className={styles.feedbackSection}>
+        <section id='feedback' className={styles.feedbackSection}>
             <h3 className={styles.feedbackSection__title}>Отзывы</h3>
             <div className={styles.feedbackSection__list}>
                 <FeedbackList />

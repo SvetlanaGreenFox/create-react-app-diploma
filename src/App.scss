@@ -1,3 +1,6 @@
+@import './styles/colors';
+@import './styles/fonts';
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -34,15 +37,6 @@ a:hover {
     outline: 0;
 }
 
-
-
 *{
   box-sizing: border-box;
-}
-
-.logo{
-  width: 104px;
-  height: 49px;
-
-  color: white;
 }

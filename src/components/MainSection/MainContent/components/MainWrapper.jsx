@@ -4,7 +4,7 @@ import styles from "./MainWrapper.module.scss";
 
 const MainWrapper = () => {
     return(
-        <section className={styles.mainContent}>
+        <section className={styles.mainWrapper}>
             <SloganTitle/>
             <SearchForm />
         </section>
