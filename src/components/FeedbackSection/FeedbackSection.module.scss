@@ -1,4 +1,5 @@
-@import "../../styles/fonts";
+@import '../../styles/fonts';
+@import '../../styles/mixins';
 
 .feedbackSection {
     padding: 150px 80px;
@@ -13,11 +14,9 @@
 }
 
 .feedbackSection__title {
-    max-width: 1320px;
-    margin: 0 auto;
+    @include innerContentWrapper();
 
-    font-weight: 500;
-    font-weight: bold;
+    font-size: 30px;
     text-transform: uppercase;
 
     padding-bottom: 30px;

@@ -3,8 +3,6 @@ import AboutSection from "../../AboutSection";
 import HowItWorkSection from "../../HowItWorkSection";
 import FeedbackSection from "../../FeedbackSection";
 import FooterSection from "../../FooterSection";
-import SearchForm from "../SearchForm";
-import SloganTitle from "../SloganTitle";
 
 import { useEffect } from "react";
 import styles from './MainPage.module.scss';
@@ -23,10 +21,7 @@ const MainPage = (props) => {
 
     return (
         <section className={styles.mainPage}>
-            <HeaderSection mainStyles={styles.header}>
-                <SloganTitle/>
-                <SearchForm/>
-            </HeaderSection>
+            <HeaderSection />
             <AboutSection />
             <HowItWorkSection />
             <FeedbackSection />

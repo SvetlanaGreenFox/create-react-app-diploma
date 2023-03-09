@@ -1,16 +1,15 @@
+@import '../../../../styles/mixins';
+
 .howItWorkHeader {
-    display: flex;
+    @include innerContentWrapper();
+
     justify-content: space-between;
     align-items: baseline;
-
-    max-width: 1320px;
-    margin: 0 auto;
 }
 
 .howItWorkHeader__title {
     width: 50%;
-    font-weight: 500;
-    font-weight: bold;
+    font-size: 30px;
     text-transform: uppercase;
     color: white;
 }
@@ -23,24 +22,13 @@
     height: 32px;
 }
 .btn-more {
+    @include additionalBtns();
+
     width: 47%;
     max-width: 325px;
-
-    background-color: rgba(0, 0, 0, 0);
-    border: solid 1px white;
-    border-radius: 3px;
-    color: white;
-
-    font-size: 1em;
-    font-weight: 700;
-    line-height: 15px;
+    text-transform: uppercase;
 }
 .btn-more:hover {
-    cursor: grab;
-    box-shadow: 2px 1px 1px #000000;
-}
-.btn-more:focus {
-    background-color: #E5E5E5;
-    // border: solid 1px $main-orange;
-    // color: $main-orange;
+    border: solid 1px white;
+    background-color: white;
 }

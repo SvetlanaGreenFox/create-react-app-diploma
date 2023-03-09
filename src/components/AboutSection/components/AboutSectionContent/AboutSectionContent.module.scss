@@ -1,13 +1,12 @@
-// @import "../../styles/fonts";
-@import "../../../../styles/colors";
+@import '../../../../styles/colors';
+@import '../../../../styles/mixins';
 
 .aboutSectionContent {
-    display: flex;
-    max-width: 1320px;
-    margin: 0 auto;
+    @include innerContentWrapper();
 }
 
 .aboutDescription {
+    font-size: 18px;
     padding-left: 9px;
     border-left: thick solid $main-orange;
 }

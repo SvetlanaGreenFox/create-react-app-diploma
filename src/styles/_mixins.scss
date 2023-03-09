@@ -8,7 +8,7 @@
     color: $color;
 }
 
-%highlightBtns {
+%highlightAdditionalBtns {
     transition: .1s;
     color: $main-dark;
     border: none;
@@ -16,6 +16,7 @@
 }
 
 @mixin additionalBtns () {
+    height: 60px;
     font-size: 20px;
     letter-spacing: 1px;
 
@@ -28,12 +29,66 @@
     padding: 15px 17px;
 
         &:hover {
-            @extend %highlightBtns;
+            @extend %highlightAdditionalBtns;
             background-color: $main-orange; 
         }
 
         &:focus {
-            @extend %highlightBtns;
+            @extend %highlightAdditionalBtns;
             background-color: #FFFFFF;
         }
+}
+
+%highlightSearchBtns {
+    transition: .1s;
+    color: $main-orange;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: solid 1px $main-orange;
+    border-radius: 5px; 
+}
+
+@mixin searchBtns () {
+    height: 60px;
+    font-size: 20px;
+    letter-spacing: 1px;
+
+    border: none;
+    border-radius: 3px;
+    background-color: $main-orange;
+    background-repeat: no-repeat;
+
+    padding: 15px 17px;
+        a {
+            color: #292929;
+        }
+
+        &:hover {
+            box-shadow: 8px 8px 12px 0px rgba(247, 248, 249, 0.2);
+        }
+
+        &:focus {
+            @extend %highlightSearchBtns;
+            a {
+                color: $main-orange;       
+            }
+        }
+}
+
+@mixin headerStyles () {
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+
+    padding: 0px 80px;
+
+    background-blend-mode: multiply;
+    background-size: cover;  
+}
+
+@mixin innerContentWrapper () {
+    display: flex;
+    width: 100%;
+    max-width: 1320px;
+    margin: 0 auto;
 }

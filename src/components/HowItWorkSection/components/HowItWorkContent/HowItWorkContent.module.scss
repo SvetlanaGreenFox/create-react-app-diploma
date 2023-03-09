@@ -1,8 +1,9 @@
-.howItWorkContent {
-    max-width: 1320px;
-    margin: 0 auto;
+@import '../../../../styles/mixins';
 
-    padding: 100px 100px;
+.howItWorkContent {
+    @include innerContentWrapper();
+
+    padding: 100px 0px;
 }
 
 .howItWorkContent__cards {

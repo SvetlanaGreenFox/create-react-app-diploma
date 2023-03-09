@@ -1,4 +1,3 @@
-// import { Link } from "react-router-dom";
 import HowItWorkHeader from "./components/HowItWorkHeader";
 import HowItWorkContent from "./components/HowItWorkContent";
 import styles from "./HowItWorkSection.module.scss";

@@ -1,14 +1,16 @@
-import styles from "./HeaderSection.module.scss";
-import cx from 'classnames';
+import SloganTitle from "../SloganTitle";
+import SearchForm from "../SearchForm";
 
-const HeaderSection = (props) => {
-    console.log(props.mainStyles);
+import styles from "./HeaderSection.module.scss";
+
+const HeaderSection = () => {
     return(
-        <section className={cx(styles['header-section'], props.mainStyles)}>
-            <div className={styles['header-section__content']}>
-                {props.children}
-            </div>
-        </section>
+        <section className={ styles['header-section'] }>
+        <div className={ styles['header-section__content'] }>
+            <SloganTitle />
+            <SearchForm />
+        </div>
+    </section>
     ) 
         
     

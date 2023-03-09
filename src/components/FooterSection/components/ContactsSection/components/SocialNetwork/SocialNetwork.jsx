@@ -6,9 +6,16 @@ import { AiOutlineGooglePlus } from 'react-icons/ai';
 import { FaFacebookF } from 'react-icons/fa';
 import { FaTwitter } from 'react-icons/fa';
 
+import { useState } from 'react';
 import styles from './SocialNetwork.module.scss';
 
 const SocialNetwork = () => {
+    const [state, setState] = useState('');
+
+    function handlerInpuit () {
+        
+    }
+    
     return (
         <section className={styles.socialNetwork}>
             <div className={styles.socialNetwork__title}>

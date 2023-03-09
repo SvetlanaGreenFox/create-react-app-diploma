@@ -29,23 +29,27 @@ const SearchForm = () => {
         <div className={styles.searchForm__item}>
             <h4 className={styles.searchForm__title}>Дата</h4>
             <div className={styles.searchForm__inputsWrapper}>
-                    <DatePicker 
-                        wrapperClassName={styles.picker}
+                <div className={styles['picker-wrapper']}><DatePicker 
+                        className={styles.picker}
                         selected={startDate}
                         selectsStart
                         startDate={startDate}
                         endDate={endDate} 
                         onChange={date => setStartDate(date)}
-                    />
-                    <div className={styles.picker}><DatePicker
-                        selected={endDate}
-                        selectsEnd
-                        startDate={startDate}
-                        endDate={endDate}
-                        minDate={startDate}
-                        onChange={date => setEndDate(date)}
                     /></div>
                     
+                    <div className={styles['picker-wrapper']}>
+                    <DatePicker
+                            className={styles.picker}
+                            selected={endDate}
+                            selectsEnd
+                            startDate={startDate}
+                            endDate={endDate}
+                            minDate={startDate}
+                            onChange={date => setEndDate(date)}
+                        />
+                    </div>
+                        
                 </div>
             </div>
         <div className={styles.searchForm__btnWrapper}>

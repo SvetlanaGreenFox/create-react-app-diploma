@@ -1,3 +1,5 @@
+@import '../../../../styles/colors';
+
 .logoSection {
     padding: 30px 80px;
 }
@@ -17,6 +19,10 @@
     font-size: 24px;
 }
 
+.arrowUp {
+    color: white;
+}
+
 .logoSection__arrowUp-wrapper {
     border: solid 1px white;
     border-radius: 50%;
@@ -26,6 +32,9 @@
 
     line-height: 2.5em;
     text-align: center; 
+}
+.logoSection__arrowUp-wrapper:hover {
+    background-color: $main-orange;
 }
 
 .license__description {
