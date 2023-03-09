@@ -1,4 +1,4 @@
-import HeaderSection from "../MainContent";
+import HeaderSection from "../HeaderSection";
 import AboutSection from "../../AboutSection";
 import HowItWorkSection from "../../HowItWorkSection";
 import FeedbackSection from "../../FeedbackSection";
