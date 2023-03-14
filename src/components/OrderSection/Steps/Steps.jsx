@@ -1,12 +1,22 @@
 import styles from './Steps.module.scss';
-import cx from 'classnames';
 
 const Steps = () => {
     return (
         <section className={styles.steps}>
-            <div className={cx(styles['steps-item'], styles['steps-item-1'])}>
-                <p className={styles['steps__name']}>Билеты</p>
+            <div className={styles['steps-item']}>
+                <div className={styles.rectangle}>
+                    <h2 className={styles['steps__name']}>Билеты</h2>
+                </div>
+                <span className={styles.triangle}></span>
             </div>
+
+            <div className={styles['steps-item']}>
+                <div className={styles.rectangle2}>
+                    <h2 className={styles['steps__name']}>Билеты</h2>
+                </div>
+                <span className={styles.triangle}></span>
+            </div>
+            
             <div className={styles['steps-item']}>
                 <p className={styles['steps__name']}>Пассажиры</p>
             </div>

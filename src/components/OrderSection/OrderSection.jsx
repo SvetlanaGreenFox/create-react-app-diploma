@@ -3,14 +3,22 @@ import FooterSection from '../FooterSection';
 import Steps from './Steps';
 
 import styles from './OrderSection.module.scss';
+import { useEffect } from 'react';
 
 
 const OrderSection = () => {
-    console.log()
+    
+    useEffect(() => {
+        fetch( 'https://netology-trainbooking.netoservices.ru/routes/last' )
+        .then( response => response.json() )
+        .then( data => console.log(data) );
+    }, []);
+
     return (
         <section className={styles.orderSection}>
             <OrderHeader />
             <Steps />
+            <div></div>
             <FooterSection />
         </section>
     )

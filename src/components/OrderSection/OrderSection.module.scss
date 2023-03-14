@@ -1,7 +1,9 @@
 @import '../../styles/colors';
+@import '../../styles/fonts';
 
 .orderSection {
     position: relative;
+    font-family: $font-roboto;
 }
 
 .header {
