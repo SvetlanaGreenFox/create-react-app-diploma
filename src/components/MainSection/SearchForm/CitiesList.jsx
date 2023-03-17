@@ -1,18 +1,21 @@
-import { useEffect } from "react";
+import styles from './CitiesList.module.scss';
 
-const CitiesList = ({ cities }) => {
-    console.log('вход', cities);
-    useEffect(() => {
-        console.log('get');
-        // axios
-        //     .get('https://netology-trainbooking.netoservices.ru/routes/cities?name={departure}')
-        //     .then(res => console.log(res.data))
-        fetch( `https://netology-trainbooking.netoservices.ru/routes/cities?name=${cities}` )
-        .then( response => response.json())
-        .then( data => console.log( data ));
-    }, [cities])
+const CitiesList = ({ cities, selectCity }) => {
+    // console.log(cities);
     return(
-        <div></div>
+        <div className={cities.length > 0 ? styles.test : styles.hidden}>
+            <ul>
+                { cities.map((city) => {
+                    return (<li 
+                        key={city['_id']} 
+                        className={styles['citiesList__item']} 
+                        onClick={() => console.log('1')}>
+                    { city.name }
+                    </li>)}
+                )
+                }
+            </ul>
+        </div>
     )
 };
 

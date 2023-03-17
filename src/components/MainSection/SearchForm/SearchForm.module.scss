@@ -7,6 +7,8 @@
 
     background-color: rgba(0, 0, 0, 0.6);
     padding: 79px 27px 52px 21px;
+
+    font-family: $font-roboto;
 }
 
 .searchForm__item {
@@ -20,7 +22,6 @@
 }
 
 .searchForm__title{
-    font-family: $font-roboto;
     font-weight: 300;
     font-size: 30px;
     color: white;
@@ -28,15 +29,21 @@
     margin-bottom: 15px;
 }
 
-.searchForm__inputsWrapper {
+.searchForm__inputs-wrapper {
     width: 100%;
     
     display: flex;
     justify-content: space-between;
 }
 
-.searchForm__input {
+.input-departure {
+    position: relative;
+
     width: 47%;
+}
+
+.searchForm__input {
+    width: 100%;
     height: 60px;
 }
 .searchForm__input:focus {
@@ -45,6 +52,25 @@
     box-shadow: 0 0 0 3px $main-dark;
     outline: none;
     transition: .1s;
+}
+
+.cities-list {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    z-index: 999;
+
+    width: 100%;
+
+    font-size: 15px;
+    text-transform: uppercase;
+
+    // padding: 15px 25px 7px 28px;
+
+    background-color: #F5F4F6;  
+}
+.hidden {
+    display: none;
 }
 
 .searchForm__btnWrapper {
