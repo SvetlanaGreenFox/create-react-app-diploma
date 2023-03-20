@@ -9,7 +9,7 @@ const CitiesList = ({ cities, selectCity }) => {
                     return (<li 
                         key={city['_id']} 
                         className={styles['citiesList__item']} 
-                        onClick={() => console.log('1')}>
+                        onClick={() => selectCity(city['_id'])}>
                     { city.name }
                     </li>)}
                 )

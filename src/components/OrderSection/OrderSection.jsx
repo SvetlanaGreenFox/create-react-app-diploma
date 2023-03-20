@@ -1,6 +1,7 @@
 import OrderHeader from './OrderHeader';
 import FooterSection from '../FooterSection';
 import Steps from './Steps';
+import TicketPages from './TicketPages';
 
 import styles from './OrderSection.module.scss';
 import { useEffect } from 'react';
@@ -18,7 +19,7 @@ const OrderSection = () => {
         <section className={styles.orderSection}>
             <OrderHeader />
             <Steps />
-            <div></div>
+            <TicketPages />
             <FooterSection />
         </section>
     )
