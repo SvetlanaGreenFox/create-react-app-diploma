@@ -27,15 +27,6 @@ const SearchForm = () => {
 
     const dispatch = useDispatch();
 
-    // fetch( 'https://netology-trainbooking.netoservices.ru/routes?from_city_id=5b9a2fa7f83e028786ea5672&to_city_id=5b9a2fa8f83e028786ea567b' )
-    // .then( response => response.json()
-    //     .then( data => { console.log( 'routes',  data ) })
-    // );
-    // from_city_id - Идентификатор города, откуда планируется путешествие (обязательный)
-    // to_city_id - Идентификатор города, куда планируется путешествие (обязательный)
-    // date_start - Дата отбытия туда (в формате YYYY-MM-DD; например 2030-03-01)
-    // date_end - Дата отбытия обратно (в формате YYYY-MM-DD; например 2030-03-01)
-
     function prepareDate (date) {
         const month = (date.getMonth() + 1).toString();
         const prepareMonth = month.length === 1 ? `0${month}` : month; 
@@ -193,7 +184,7 @@ const SearchForm = () => {
             </div>
         <div className={styles.searchForm__btnWrapper}>
             <button onClick={sendData} type="submit" className={styles.searchForm__btn}>
-                <NavLink onClick={sendData} to='/tickets'>Найти билеты</NavLink>
+                <NavLink to='/tickets'>Найти билеты</NavLink>
             </button>
         </div>
     </form>
