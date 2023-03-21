@@ -37,40 +37,19 @@ const SearchForm = () => {
     // date_end - Дата отбытия обратно (в формате YYYY-MM-DD; например 2030-03-01)
 
     function prepareDate (date) {
-        return `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`;
-    } 
-    function prepareData () {
-        //написать проверку на название города
-        // const prepareStartDate = startDate ? prepareDate(startDate) : prepareDate(new Date());
-        // console.log(prepareStartDate);
-        // const prepareEndDate = endDate ? prepareDate(endDate) : null;
-        // console.log(prepareEndDate); 
-        const prepareStartDate = () => {
-           if (startDate) {
-            setDirection(prev => ({ ...prev, start: prepareDate(startDate)}));
-           } else {
-            setDirection(prev => ({ ...prev, start: prepareDate(new Date())}));
-           }
-        };
-
-        const prepareEndDate = () => {
-            if (endDate) {
-             setDirection(prev => ({ ...prev, end: prepareDate(endDate)}));
-            } else {
-              return null;
-            }
-         };
+        const month = (date.getMonth() + 1).toString();
+        const prepareMonth = month.length === 1 ? `0${month}` : month; 
         
-         
-        // setDirection(prev => ({ ...prev, start: prepareDate(startDate)}));
-        // setDirection(prev => ({ ...prev, end: prepareEndDate}));
-        console.log('direction', direction);
-    }
+        return `${date.getFullYear()}-${prepareMonth}-${date.getDate()}`;
+    } 
 
     function sendData (e) {
         e.preventDefault();
+
+        const prepareStartDate = startDate ? prepareDate(startDate) : null;
+        const prepareEndDate = endDate ? prepareDate(endDate) : null;
         
-        dispatch(setTickets({...direction, start: startDate, end: endDate}));
+        dispatch(setTickets({...direction, start: prepareStartDate, end: prepareEndDate}));
     }
     
     function targetCity (id) {
@@ -196,7 +175,7 @@ const SearchForm = () => {
                         selectsStart
                         startDate={startDate}
                         endDate={endDate} 
-                        onChange={date => setStartDate(date)}
+                        onChange={(date) => setStartDate(date)}
                     /></div>
                     
                     <div className={styles['picker-wrapper']}>
@@ -207,7 +186,7 @@ const SearchForm = () => {
                             startDate={startDate}
                             endDate={endDate}
                             minDate={startDate}
-                            onChange={date => setEndDate(date)}
+                            onChange={(date) => setEndDate(date)}
                         />
                     </div>
                 </div>
