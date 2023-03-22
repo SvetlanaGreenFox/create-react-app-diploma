@@ -1,0 +1,19 @@
+@import '../../../../../styles/colors';
+
+.last-ticket-card {
+    background-color: #FFFFFF;
+    border: solid 1px #C4C4C4;
+}
+
+.last-ticket-card__from-to {
+    display: flex;
+    justify-content: space-between;
+}
+
+.last-ticket-card__to {
+    text-align: right;
+}
+
+.train-options__icon {
+    color: $main-light;
+}

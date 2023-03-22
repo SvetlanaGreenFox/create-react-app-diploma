@@ -9,11 +9,11 @@ import { useEffect } from 'react';
 
 const OrderSection = () => {
     
-    useEffect(() => {
-        fetch( 'https://netology-trainbooking.netoservices.ru/routes/last' )
-        .then( response => response.json() )
-        .then( data => console.log(data) );
-    }, []);
+    // useEffect(() => {
+    //     fetch( 'https://netology-trainbooking.netoservices.ru/routes/last' )
+    //     .then( response => response.json() )
+    //     .then( data => console.log(data) );
+    // }, []);
 
     return (
         <section className={styles.orderSection}>
