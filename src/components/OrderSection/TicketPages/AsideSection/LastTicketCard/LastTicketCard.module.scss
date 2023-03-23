@@ -3,17 +3,62 @@
 .last-ticket-card {
     background-color: #FFFFFF;
     border: solid 1px #C4C4C4;
+
+    padding: 18px 18px 18px 14px;
 }
 
-.last-ticket-card__from-to {
+.last-ticket-card__from-to,
+.last-ticket-card__price {
     display: flex;
     justify-content: space-between;
 }
 
+.last-ticket-card__from-to {
+    margin-bottom: 25px;
+}
+
 .last-ticket-card__to {
-    text-align: right;
+    text-align: right; 
+}
+
+.city {
+    font-size: 20px;
+    text-transform: capitalize;
+    margin-bottom: 5px;
+}
+
+.railway {
+    font-size: 16px;
+    color: #928F94;
+}
+
+.last-ticket-card__options {
+    display: flex;
+    
 }
 
 .train-options__icon {
+    font-size: 20px;
     color: $main-light;
+    margin-right: 10px;
+}
+
+.last-ticket-card__price {
+    align-items: baseline;
+    color: #928F94; 
+}
+
+.price__item {
+    display: flex;
+    margin-right: 5px;
+}
+
+.min-price {
+    color: $main-orange;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.icon-rub {
+    font-size: 30px;
 }

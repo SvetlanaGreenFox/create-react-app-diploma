@@ -24,7 +24,7 @@ const LastTickets = () => {
             {isLoading ? <p>Loading</p> : <ul>
                 { lastTickets.map(item => {
                     return (
-                        <li key={uniqid()}>
+                        <li className={styles['last-section__item']} key={uniqid()}>
                             <LastTicketCard data={item}/>
                         </li>
                     )
