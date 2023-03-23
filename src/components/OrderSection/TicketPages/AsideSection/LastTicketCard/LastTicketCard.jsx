@@ -9,7 +9,10 @@ const LastTicketCard = (props) => {
     console.log(props.data);
     const { data } = props;
     const { departure: { from, to } } = data;
-    console.log(data['min_price']);
+    console.log(data['is_express']);
+    function addOptionClass (option) {
+        return ( option ? 'active' : 'hidden');  
+    }
     
     return (
         <div className={styles['last-ticket-card']}>
@@ -25,9 +28,14 @@ const LastTicketCard = (props) => {
             </div>
             <div className={styles['last-ticket-card__price']}>
                 <div className={styles['last-ticket-card__options']}>
-                    <div className={styles['train-options__icon']}><AiOutlineWifi /></div>
-                    <div className={styles['train-options__icon']}><FaRocket /></div>
-                    <div className={styles['train-options__icon']}><RiCupFill /></div>
+                    <div className={cx(styles['train-options__icon'], styles[addOptionClass(data['have_wifi'])])}>
+                        <AiOutlineWifi />
+                    </div>
+                    <div className={cx(styles['train-options__icon'], styles[addOptionClass(data['is_express'])])}>
+                        <FaRocket />
+                    </div>
+                    <div className={cx(styles['train-options__icon'], styles[addOptionClass(data['have_first_class'])])}>
+                        <RiCupFill /></div>
                 </div>
                 <div className={styles['last-ticket-card__price']}>
                     <span className={ styles['price__item']  }>от</span>
