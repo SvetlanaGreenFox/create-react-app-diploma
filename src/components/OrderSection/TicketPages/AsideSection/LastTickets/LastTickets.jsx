@@ -17,7 +17,7 @@ const LastTickets = () => {
             setIsLoading(false);
         });
     }, []);
-    console.log(LastTicketCard);
+    
     return (
         <section className={styles['last-section']}>
             <p className={styles['last-section__title']}>Последние билеты</p>

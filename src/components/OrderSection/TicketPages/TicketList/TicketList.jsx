@@ -21,16 +21,19 @@ const TicketList = () => {
              })
     }, [fromCityId, toCityId, start, end]); 
 
-    // console.log('билеты', tickets.items);
+    
     return (
-        <section>
+        <section className={styles['ticketList-wrapper']}>
             {isLoading ? <p>Идет закгрузка</p> : 
-            <div>
+            <ul>
                 { tickets.items ? tickets.items.map( item => {
-                    return <div key={uniqid()}><TrainCard data={item}/></div>
+                    return (
+                        <li key={uniqid()}>
+                            <TrainCard data={item}/>
+                        </li>)
                     }) : <p>Nothing</p> 
                 }
-            </div>
+            </ul>
             }
         </section>
     )

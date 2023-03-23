@@ -6,10 +6,10 @@ import { BiRuble } from 'react-icons/bi';
 import cx from 'classnames';
 
 const LastTicketCard = (props) => {
-    console.log(props.data);
+   
     const { data } = props;
     const { departure: { from, to } } = data;
-    console.log(data['is_express']);
+    
     function addOptionClass (option) {
         return ( option ? 'active' : 'hidden');  
     }

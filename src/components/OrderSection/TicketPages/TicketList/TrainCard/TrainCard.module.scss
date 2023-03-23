@@ -1,0 +1,57 @@
+.train-card {
+    display: flex;
+    max-width: 960px;
+    background-color: #FFFFFF;
+    border: solid 1px #C4C4C4;
+}
+
+.direction-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 200px;
+}
+
+.departure-info {
+    width: 460px;
+}
+
+.price-info {
+    width: 300px;
+    border-left: solid 1px #E5E5E5;
+}
+
+.direction-info__icon-wrap {
+    width: 86px;
+    height: 86px;
+    border: solid 1px #FFFFFF;
+    border-radius: 50%;
+}
+.icon-train {
+    width: 70px;
+    height: 70px;
+    text-align: center;
+
+    z-index: 999;
+}
+
+.target-direction {
+    text-transform: capitalize;
+}
+.train-num {
+    text-transform: uppercase;
+}
+
+.direction-info {
+    background-color: #E4E0E9;
+}
+
+.target-departure {
+    display: flex;
+    align-items: center;
+}
+.target-departure__item {
+    margin-right: 3px;
+}
