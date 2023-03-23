@@ -1,21 +1,26 @@
 import styles from './TrainCard.module.scss';
-import train from '../../../../../assets/train.png';
-import {BsArrowRight} from 'react-icons/bs';
+import moment from 'moment';
+import { BsArrowRight } from 'react-icons/bs';
+import trainIcon from '../../../../../assets/train.png';
+import arrowForward from '../../../../../assets/arrowForward.png';
+// import arrowBack from '../../../../../assets/arrowBack.png';
+
+import TimeCard from './TimeCard';
+import SeatCard from './SeatCard';
+
+
 
 const TrainCard = ( { data } ) => {
-   console.log(data.departure);
-   const { departure } = data;
-   const { train, from, to } = departure;
-   
-   
-   
     
+    const { departure } = data;
+    const { train, from, to } = departure;
+    const duration = moment(departure.duration * 1000).format("HH:mm");
+
     return (
         <div className={styles['train-card']}>
             <div className={styles['direction-info']}>
                 <div className={styles['direction-info__icon-wrap']}>
-                    <img className={styles['icon-train']} src={train} />
-                
+                    <img src={trainIcon} className={styles['icon-train']} alt='train' />
                 </div>
                 <div className={styles['direction-info__num']}>
                     <p className={styles['train-num']}>120B</p>
@@ -36,8 +41,31 @@ const TrainCard = ( { data } ) => {
 
                 </div>
             </div>
-            <div className={styles['departure-info']}></div>
-            <div className={styles['price-info']}></div>
+            <div className={styles['departure-info']}>
+                <div className={styles['departure-info__path']}>
+                    <TimeCard data={from} />
+                    <div className={styles['arrow-wrapp']}>
+                      <p className={styles['departure-info__diff']}>{duration}</p>  
+                      <img src={arrowForward} alt='pathTo'/>  
+                    </div>
+                    <TimeCard data={to}/>
+                </div>
+            </div>
+            <div className={styles['seats-info']}>
+                {/* <SeatCard /> */}
+                <div>
+                    {data['have_fourth_class'] ? <SeatCard data={departure['available_seats_info']['']} /> : null}
+                </div>
+                <div>
+                    {data['have_third_class'] ? <SeatCard data={departure['available_seats_info']} /> : null}
+                </div>
+                <div>
+                    {data['have_second_class'] ? <SeatCard data={departure['available_seats_info']} /> : null}
+                </div>
+                <div>
+                    {data['have_first_class'] ? <SeatCard data={departure['available_seats_info']} /> : null}
+                </div>
+            </div>
         </div>
     )
 }

@@ -28,7 +28,7 @@ const TicketList = () => {
             <ul>
                 { tickets.items ? tickets.items.map( item => {
                     return (
-                        <li key={uniqid()}>
+                        <li className={styles['ticketList__item']} key={uniqid()}>
                             <TrainCard data={item}/>
                         </li>)
                     }) : <p>Nothing</p> 

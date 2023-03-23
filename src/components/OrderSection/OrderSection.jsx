@@ -4,7 +4,7 @@ import Steps from './Steps';
 import TicketPages from './TicketPages';
 
 import styles from './OrderSection.module.scss';
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 
 
 const OrderSection = () => {
