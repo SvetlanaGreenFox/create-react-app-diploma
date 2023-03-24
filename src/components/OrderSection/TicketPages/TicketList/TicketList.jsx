@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import uniqid from 'uniqid';
 
-import TrainCard from './TrainCard/TrainCard';
+import TrainCard from '../TrainCard/TrainCard';
 
 const TicketList = () => {
     const ticketList = useSelector(state => state.ticketList);
@@ -21,7 +21,6 @@ const TicketList = () => {
              })
     }, [fromCityId, toCityId, start, end]); 
 
-    
     return (
         <section className={styles['ticketList-wrapper']}>
             {isLoading ? <p>Идет закгрузка</p> : 

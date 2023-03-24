@@ -1,6 +1,6 @@
 import OrderSection from '../OrderSection';
 import MainPage from "./MainPage";
-import PlacesSection from '../OrderSection/PlacesSection/PlacesSection';
+import PlacesSection from '../OrderSection/TicketPages/PlacesSection/PlacesSection';
 import TicketList from '../OrderSection/TicketPages/TicketList/TicketList'; 
 
 import styles from "./MainSection.module.scss";

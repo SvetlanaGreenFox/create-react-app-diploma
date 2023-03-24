@@ -1,7 +1,8 @@
 import styles from './LastTickets.module.scss';
-import axios from 'axios';
+import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import uniqid from 'uniqid';
+import axios from 'axios';
 
 import LastTicketCard from '../LastTicketCard/LastTicketCard';
 
@@ -25,8 +26,11 @@ const LastTickets = () => {
                 { lastTickets.map(item => {
                     return (
                         <li className={styles['last-section__item']} key={uniqid()}>
-                            <LastTicketCard data={item}/>
+                            <Link to={`last/${item.departure['_id']}`} onClick={()=> console.log('hi')} >
+                                <LastTicketCard data={item}/>
+                            </Link>
                         </li>
+                        
                     )
                 })}
             </ul>}

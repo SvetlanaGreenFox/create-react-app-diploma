@@ -6,7 +6,7 @@ import { BiRuble } from 'react-icons/bi';
 import cx from 'classnames';
 
 const LastTicketCard = (props) => {
-   
+//    console.log('props', props);
     const { data } = props;
     const { departure: { from, to } } = data;
     
@@ -15,7 +15,7 @@ const LastTicketCard = (props) => {
     }
     
     return (
-        <div className={styles['last-ticket-card']}>
+        <div className={styles['last-ticket-card']} >
             <div className={styles['last-ticket-card__from-to']}>
                 <div className={styles['last-ticket-card__from']}>
                     <p className={styles.city}>{from.city.name}</p>

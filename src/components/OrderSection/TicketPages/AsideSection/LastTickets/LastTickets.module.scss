@@ -1,3 +1,5 @@
+@import '../../../../../styles/colors';
+
 .last-section {
     width: 360px;
 }
@@ -11,4 +13,12 @@
 
 .last-section__item {
     margin-bottom: 17px;
+}
+.last-section__item:hover {
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 2px 3px 3px $main-orange;
+}
+.last-section__item:focus {
+    border: solid 1px $main-orange;
 }

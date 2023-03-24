@@ -2,7 +2,7 @@ import styles from './TicketPages.module.scss';
 
 import TicketList from './TicketList/TicketList';
 import AsideSection from './AsideSection/AsideSection';
-import PlacesSection from '../PlacesSection/PlacesSection';
+import PlacesSection from './PlacesSection/PlacesSection';
 
 import { Outlet, Routes, Route } from 'react-router-dom';
 
