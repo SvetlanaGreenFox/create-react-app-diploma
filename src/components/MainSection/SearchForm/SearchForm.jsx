@@ -6,6 +6,7 @@ import { NavLink } from "react-router-dom";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { setTickets } from '../../../features/slices/ticketList';
+import swapIcon from '../../../assets/swap.png';
 
 import CitiesList from "./CitiesList";
 
@@ -14,6 +15,7 @@ const SearchForm = () => {
     const [ departure, setDeparture ] = useState('');
     const [ destination, setDestination ] = useState('');
     const [ cities, setCities ] = useState([]);
+    const [ selectCity, setSelectCity ] = useState([]);
     const [direction, setDirection] = useState({
         fromCityId: '',
         toCityId: ''
@@ -62,11 +64,6 @@ const SearchForm = () => {
 
     function activeInput (e) {
 
-        axios
-            .get(`https://netology-trainbooking.netoservices.ru/routes/cities?name=а`)
-            .then( res => res.data.error ? console.log(res.data.error) : setCities(res.data))
-            ;
-
         const target = e.target.name;
         
         if (target === 'departure') {
@@ -109,15 +106,16 @@ const SearchForm = () => {
           }
     }
 
-    // useEffect(() => {
-    //         axios
-    //         .get(`https://netology-trainbooking.netoservices.ru/routes/cities?name=а`)
-    //         .then( res => res.data.error ? console.log(res.data.error) : setCities(res.data))
-    //         ;
-
-    // }, []);
+    useEffect(() => {
+        if (input.departure || input.destination) {
+            axios
+            .get(`https://netology-trainbooking.netoservices.ru/routes/cities?name=а`)
+            .then( res => res.data.error ? console.log(res.data.error) : setCities(res.data));
+        }
+    }, [input])
 
     useEffect(() => {
+        console.log('2');
         if (departure.length > 0) {
             axios
             .get(`https://netology-trainbooking.netoservices.ru/routes/cities?name=${departure}`)
@@ -139,6 +137,13 @@ const SearchForm = () => {
         return;
     }, [destination]);
 
+    function swapCities () {
+        
+        setDeparture(destination);
+        setDestination(departure);
+    }
+
+
     return <form className={styles.searchForm}>
         <div className={styles.searchForm__item}>
             <h4 className={styles.searchForm__title}>Направление</h4>
@@ -149,6 +154,7 @@ const SearchForm = () => {
                         <CitiesList cities={cities} selectCity={targetCity} /> 
                     </div>
                 </div>
+                <img onClick={() => swapCities} className={styles['swap-icon']} src={swapIcon}/>
                 <div tabIndex={1} onFocus={activeInput} onBlur={removeInput2} className={styles['input-departure']}>
                     <input className={styles.searchForm__input} onChange={(e) => setDestination(e.target.value)} value={destination} name='destination' type='text' autoComplete="off"/>
                     <div className={input.destination ? styles['cities-list'] : styles.hidden}>
