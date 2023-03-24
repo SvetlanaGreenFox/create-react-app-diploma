@@ -4,6 +4,7 @@ import { BsArrowRight } from 'react-icons/bs';
 import trainIcon from '../../../../../assets/train.png';
 import arrowForward from '../../../../../assets/arrowForward.png';
 // import arrowBack from '../../../../../assets/arrowBack.png';
+import { NavLink } from 'react-router-dom';
 
 import TimeCard from './TimeCard';
 import SeatCard from './SeatCard';
@@ -65,6 +66,11 @@ const TrainCard = ( { data } ) => {
                 <div>
                     {data['have_first_class'] ? <SeatCard data={departure['available_seats_info']} /> : null}
                 </div>
+            </div>
+            <div>
+                <button onClick={() => console.log('Work')}>
+                    <NavLink to='/order/list/places'>Выбрать места</NavLink>
+                </button>
             </div>
         </div>
     )

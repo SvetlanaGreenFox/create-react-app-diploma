@@ -184,7 +184,7 @@ const SearchForm = () => {
             </div>
         <div className={styles.searchForm__btnWrapper}>
             <button onClick={sendData} type="submit" className={styles.searchForm__btn}>
-                <NavLink to='/tickets'>Найти билеты</NavLink>
+                <NavLink to='/order/list/tickets'>Найти билеты</NavLink>
             </button>
         </div>
     </form>

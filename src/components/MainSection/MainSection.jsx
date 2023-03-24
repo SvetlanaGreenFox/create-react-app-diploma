@@ -1,5 +1,7 @@
 import OrderSection from '../OrderSection';
-import MainPage from "./MainPage"; 
+import MainPage from "./MainPage";
+import PlacesSection from '../OrderSection/PlacesSection/PlacesSection';
+import TicketList from '../OrderSection/TicketPages/TicketList/TicketList'; 
 
 import styles from "./MainSection.module.scss";
 import { useState } from "react";
@@ -30,7 +32,8 @@ const MainSection = () => {
 
         <Routes>
             <Route path='/' exact element={ <MainPage elem={state} /> }/>
-            <Route path='/tickets' element={ <OrderSection /> }/>
+            <Route path='order/*' element={ <OrderSection /> } /> 
+               
         </Routes>
         </div>
     );
