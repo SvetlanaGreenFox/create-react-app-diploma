@@ -33,7 +33,6 @@ const MainSection = () => {
         <Routes>
             <Route path='/' exact element={ <MainPage elem={state} /> }/>
             <Route path='order/*' element={ <OrderSection /> } /> 
-               
         </Routes>
         </div>
     );

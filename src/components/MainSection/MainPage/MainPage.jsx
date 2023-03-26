@@ -5,7 +5,6 @@ import FeedbackSection from "../../FeedbackSection";
 import FooterSection from "../../FooterSection";
 
 import { useEffect } from "react";
-import styles from './MainPage.module.scss';
 
 const MainPage = (props) => {
     const { elem } = props;
@@ -20,7 +19,7 @@ const MainPage = (props) => {
     }, [elem]);
 
     return (
-        <section className={styles.mainPage}>
+        <section>
             <HeaderSection />
             <AboutSection />
             <HowItWorkSection />

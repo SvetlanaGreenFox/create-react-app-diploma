@@ -8,7 +8,8 @@ import cx from 'classnames';
 const LastTicketCard = (props) => {
 //    console.log('props', props);
     const { data } = props;
-    const { departure: { from, to } } = data;
+    const { departure } = data;
+    const { from, to } = departure;
     
     function addOptionClass (option) {
         return ( option ? 'active' : 'hidden');  
@@ -28,13 +29,13 @@ const LastTicketCard = (props) => {
             </div>
             <div className={styles['last-ticket-card__price']}>
                 <div className={styles['last-ticket-card__options']}>
-                    <div className={cx(styles['train-options__icon'], styles[addOptionClass(data['have_wifi'])])}>
+                    <div className={cx(styles['train-options__icon'], styles[addOptionClass(departure['have_wifi'])])}>
                         <AiOutlineWifi />
                     </div>
-                    <div className={cx(styles['train-options__icon'], styles[addOptionClass(data['is_express'])])}>
+                    <div className={cx(styles['train-options__icon'], styles[addOptionClass(departure['is_express'])])}>
                         <FaRocket />
                     </div>
-                    <div className={cx(styles['train-options__icon'], styles[addOptionClass(data['have_first_class'])])}>
+                    <div className={cx(styles['train-options__icon'], styles[addOptionClass(departure['have_first_class'])])}>
                         <RiCupFill /></div>
                 </div>
                 <div className={styles['last-ticket-card__price']}>

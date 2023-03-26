@@ -1,3 +1,5 @@
+@import '../../../../styles/mixins';
+
 .train-card {
     display: flex;
     max-width: 960px;
@@ -28,6 +30,26 @@
 .seats-info {
     width: 300px;
     border-left: solid 1px #E5E5E5;
+    position: relative;
+}
+
+.btn-wrapper {
+    position: absolute;
+    bottom: 0px;
+
+    padding: 0px 32px 22px 22px;
+}
+
+.train-card__btn {
+    @include searchBtns();
+    
+    max-width: 325px;
+    height: 40px;
+    padding: 5px 15px;
+    a {
+        font-weight: 700;
+        color: #FFFFFF
+    }
 }
 
 .direction-info__icon-wrap {

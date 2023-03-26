@@ -3,12 +3,12 @@
 
 .ticketPages {
     background-color: $main-light;
-    padding: 150px 80px;
+    padding: 100px 80px;
 }
 
 .inner-wrapper {
-    max-width: 1280px;
+    max-width: 1490px;
+    margin: auto;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
 }

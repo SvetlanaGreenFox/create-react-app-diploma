@@ -1,0 +1,47 @@
+@import '../../../../../styles/colors';
+
+.card-wrapper,
+.price-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 16px;
+}
+
+.card-wrapper {
+    padding-right: 20px;
+}
+
+.name-wrapper {
+    width: 40%;
+}
+.count-wrapper {
+    width: 30%;
+    text-align: center;
+}
+.price-wrapper {
+    width: 30%;
+    color: #928F94;
+}
+
+.seat-name {
+    text-transform: capitalize;
+    color: #3E3C41;
+}
+
+.seat-count {
+   font-weight: 700;
+   color: $main-orange;
+}
+
+.min-price {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2D2B2F;
+    margin-left: 5px;
+    margin-bottom: 5px;
+}
+
+.icon-rub {
+    font-size: 24px;
+}

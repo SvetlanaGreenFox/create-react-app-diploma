@@ -6,17 +6,15 @@ import arrowForward from '../../../../assets/arrowForward.png';
 // import arrowBack from '../../../../../assets/arrowBack.png';
 import { NavLink } from 'react-router-dom';
 
-import TimeCard from './TimeCard';
-import SeatCard from './SeatCard';
-
-
+import TimeCard from './TimeCard/TimeCard';
+import SeatList from './SeatList/SeatList';
 
 const TrainCard = ( { data } ) => {
     
     const { departure } = data;
     const { train, from, to } = departure;
     const duration = moment(departure.duration * 1000).format("HH:mm");
-
+    
     return (
         <div className={styles['train-card']}>
             <div className={styles['direction-info']}>
@@ -53,24 +51,12 @@ const TrainCard = ( { data } ) => {
                 </div>
             </div>
             <div className={styles['seats-info']}>
-                {/* <SeatCard /> */}
-                <div>
-                    {data['have_fourth_class'] ? <SeatCard data={departure['available_seats_info']['']} /> : null}
+                <SeatList data={departure} />
+                <div className={styles['btn-wrapper']}>
+                    <button className={styles['train-card__btn']} onClick={() => console.log('Work')}>
+                        <NavLink to='/order/list/places'>Выбрать места</NavLink>
+                    </button>
                 </div>
-                <div>
-                    {data['have_third_class'] ? <SeatCard data={departure['available_seats_info']} /> : null}
-                </div>
-                <div>
-                    {data['have_second_class'] ? <SeatCard data={departure['available_seats_info']} /> : null}
-                </div>
-                <div>
-                    {data['have_first_class'] ? <SeatCard data={departure['available_seats_info']} /> : null}
-                </div>
-            </div>
-            <div>
-                <button onClick={() => console.log('Work')}>
-                    <NavLink to='/order/list/places'>Выбрать места</NavLink>
-                </button>
             </div>
         </div>
     )
