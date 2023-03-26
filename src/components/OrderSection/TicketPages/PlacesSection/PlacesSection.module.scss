@@ -1,3 +1,13 @@
 .places {
-    background-color: aqua;
+    max-width: 960px;
+    padding-left: 86px;
+}
+
+.places__title {
+    font-size: 30px;
+    font-weight: 500;
+    color: #292929;
+    text-transform: uppercase;
+
+    margin-bottom: 48px;
 }
