@@ -1,5 +1,5 @@
-import AboutSectionHeader from "./components/AboutSectionHeader/index";
-import AboutSectionHContent from "./components/AboutSectionContent/index";
+import AboutSectionHeader from "./components/AboutSectionHeader";
+import AboutSectionHContent from "./components/AboutSectionContent";
 
 import styles from "./AboutSection.module.scss";
 

@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import uniqid from 'uniqid';
 import axios from 'axios';
 
-import LastTicketCard from '../LastTicketCard/LastTicketCard';
+import LastTicketCard from '../LastTicketCard';
 
 const LastTickets = () => {
     const [lastTickets, setLastTickets] = useState([]);
@@ -38,4 +38,4 @@ const LastTickets = () => {
     )
 }
 
-export default LastTickets;
+export { LastTickets };

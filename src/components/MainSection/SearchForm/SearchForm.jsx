@@ -15,7 +15,6 @@ const SearchForm = () => {
     const [ departure, setDeparture ] = useState('');
     const [ destination, setDestination ] = useState('');
     const [ cities, setCities ] = useState([]);
-    const [ selectCity, setSelectCity ] = useState([]);
     const [direction, setDirection] = useState({
         fromCityId: '',
         toCityId: ''
@@ -154,7 +153,7 @@ const SearchForm = () => {
                         <CitiesList cities={cities} selectCity={targetCity} /> 
                     </div>
                 </div>
-                <img onClick={() => swapCities} className={styles['swap-icon']} src={swapIcon}/>
+                <img onClick={() => swapCities} className={styles['swap-icon']} src={swapIcon} alt='change places'/>
                 <div tabIndex={1} onFocus={activeInput} onBlur={removeInput2} className={styles['input-departure']}>
                     <input className={styles.searchForm__input} onChange={(e) => setDestination(e.target.value)} value={destination} name='destination' type='text' autoComplete="off"/>
                     <div className={input.destination ? styles['cities-list'] : styles.hidden}>

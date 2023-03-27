@@ -48,4 +48,4 @@ const LastTicketCard = (props) => {
     )
 };
 
-export default LastTicketCard;
+export { LastTicketCard } ;

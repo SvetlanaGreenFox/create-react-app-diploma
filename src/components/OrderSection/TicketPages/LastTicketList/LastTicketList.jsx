@@ -17,4 +17,4 @@ const LastTicketsList = () => {
     )
 }
 
-export default LastTicketsList;
+export { LastTicketsList };

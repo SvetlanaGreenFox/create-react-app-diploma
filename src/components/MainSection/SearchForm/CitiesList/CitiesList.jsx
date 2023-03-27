@@ -18,4 +18,4 @@ const CitiesList = ({ cities, selectCity }) => {
     )
 };
 
-export default CitiesList;
+export { CitiesList };

@@ -1,9 +1,9 @@
 import OrderHeader from './OrderHeader';
 import FooterSection from '../FooterSection';
-import Steps from './Steps';
+// import Steps from './Steps';
 import TicketPages from './TicketPages';
 import TicketList from './TicketPages/TicketList/TicketList';
-import LastTicketsList from './TicketPages/LastTicketList/LastTicketList';
+import LastTicketsList from './TicketPages/LastTicketList';
 
 import styles from './OrderSection.module.scss';
 import { Routes, Route } from 'react-router-dom';

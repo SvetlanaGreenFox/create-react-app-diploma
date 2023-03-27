@@ -1,7 +1,7 @@
 import styles from './AsideSection.module.scss';
 
-import SortMenu from './SortMenu/SortMenu';
-import LastTickets from './LastTickets/LastTickets';
+import SortMenu from './SortMenu';
+import LastTickets from './LastTickets';
 
 const AsideSection = () => {
     return (
@@ -12,4 +12,4 @@ const AsideSection = () => {
     )
 }
 
-export default AsideSection;
+export { AsideSection };
