@@ -13,7 +13,7 @@ const TrainCard = ( { data, setId } ) => {
     const { departure } = data;
     const { train, from, to } = departure;
     const duration = moment(departure.duration * 1000).format("HH:mm");
-    console.log('departure', departure);
+    // console.log('departure', departure);
     return (
         <div className={styles['train-card']}>
             <div className={styles['direction-info']}>
