@@ -15,7 +15,7 @@ const OrderSection = () => {
     return (
         <section className={styles.orderSection}>
             <OrderHeader />
-            <Steps />
+            {/* <Steps /> */}
             <Routes>
                 <Route path='list/*' element={<TicketPages />} >
                     <Route path='tickets' element={<TicketList />} />

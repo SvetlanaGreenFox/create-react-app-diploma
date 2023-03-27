@@ -9,12 +9,11 @@ import { NavLink } from 'react-router-dom';
 import TimeCard from './TimeCard/TimeCard';
 import SeatList from './SeatList/SeatList';
 
-const TrainCard = ( { data } ) => {
-    
+const TrainCard = ( { data, setId } ) => {
     const { departure } = data;
     const { train, from, to } = departure;
     const duration = moment(departure.duration * 1000).format("HH:mm");
-    
+    console.log('departure', departure);
     return (
         <div className={styles['train-card']}>
             <div className={styles['direction-info']}>
@@ -53,7 +52,7 @@ const TrainCard = ( { data } ) => {
             <div className={styles['seats-info']}>
                 <SeatList data={departure} />
                 <div className={styles['btn-wrapper']}>
-                    <button className={styles['train-card__btn']} onClick={() => console.log('Work')}>
+                    <button className={styles['train-card__btn']} onClick={() => setId(departure['_id'])}>
                         <NavLink to='/order/list/places'>Выбрать места</NavLink>
                     </button>
                 </div>

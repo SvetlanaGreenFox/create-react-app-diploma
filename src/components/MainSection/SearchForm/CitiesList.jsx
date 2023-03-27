@@ -1,16 +1,6 @@
 import styles from './CitiesList.module.scss';
 
-import { useState, useEffect } from 'react';
-
 const CitiesList = ({ cities, selectCity }) => {
-    console.log(cities);
-    // const [ state, setState ] = useState([]);
-
-    // useEffect(() => {
-    //     console.log(cities);
-    //     setState(cities);
-    // }, [cities]);
-
     return(
         <div className={cities.length > 0 ? styles.test : styles.hidden}>
             <ul>

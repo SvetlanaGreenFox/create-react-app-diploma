@@ -12,7 +12,6 @@ const ticketListSlice = createSlice({
     initialState,
     reducers: {
         setTickets (state, action) {
-            console.log('action', action);
             const { fromCityId, toCityId, start, end } = action.payload;
             state.fromCityId = fromCityId;
             state.toCityId = toCityId;
