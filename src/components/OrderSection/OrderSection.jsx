@@ -2,13 +2,15 @@ import OrderHeader from './OrderHeader';
 import FooterSection from '../FooterSection';
 // import Steps from './Steps';
 import TicketPages from './TicketPages';
-import TicketList from './TicketPages/TicketList/TicketList';
+import TicketList from './TicketPages/TicketList';
 import LastTicketsList from './TicketPages/LastTicketList';
 
 import styles from './OrderSection.module.scss';
 import { Routes, Route } from 'react-router-dom';
-import PlacesSection from './TicketPages/PlacesSection/PlacesSection';
+import PlacesSection from './TicketPages/PlacesSection';
+import FirstClass from './TicketPages/PlacesSection/Coach/FirstClass';
 import PassengersSection from './PassengersSection/PassengersSection';
+
 
 const OrderSection = () => {
     
@@ -20,7 +22,9 @@ const OrderSection = () => {
                 <Route path='list/*' element={<TicketPages />} >
                     <Route path='tickets' element={<TicketList />} />
                     <Route path='last/:id' element={<LastTicketsList />} />
-                    <Route path='places' element={<PlacesSection />} />
+                    <Route path='places/*' element={<PlacesSection />}> 
+                        <Route path='first' element={<FirstClass />}/>
+                    </Route>
                 </Route>
                 <Route path='passengers' element={<PassengersSection />}>
                 </Route>

@@ -13,4 +13,4 @@ const TimeCard = ({ data }) => {
     )
 }
 
-export default TimeCard;
+export { TimeCard };

@@ -1,6 +1,6 @@
 import styles from './SeatList.module.scss';
 
-import SeatCard from './SeatCard';
+import SeatCard from '../SeatCard';
 
 
 const SeatList = ({ data }) => {
@@ -26,4 +26,4 @@ const SeatList = ({ data }) => {
     )
 }
 
-export default SeatList;
+export { SeatList };

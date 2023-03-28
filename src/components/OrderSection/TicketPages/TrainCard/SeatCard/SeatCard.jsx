@@ -22,4 +22,4 @@ const SeatCard = ({ name, count, price }) => {
     )
 }
 
-export default SeatCard;
+export { SeatCard };

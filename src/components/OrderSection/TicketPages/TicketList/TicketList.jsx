@@ -6,7 +6,7 @@ import { setSelectTrain } from '../../../../features/slices/selectTrain';
 import axios from 'axios';
 import uniqid from 'uniqid';
 
-import TrainCard from '../TrainCard/TrainCard';
+import TrainCard from '../TrainCard';
 
 const TicketList = () => {
     const ticketList = useSelector(state => state.ticketList);
@@ -45,4 +45,4 @@ const TicketList = () => {
     )
 }
 
-export default TicketList;
+export { TicketList };

@@ -6,8 +6,8 @@ import arrowForward from '../../../../assets/arrowForward.png';
 // import arrowBack from '../../../../../assets/arrowBack.png';
 import { NavLink } from 'react-router-dom';
 
-import TimeCard from './TimeCard/TimeCard';
-import SeatList from './SeatList/SeatList';
+import TimeCard from './TimeCard';
+import SeatList from './SeatList';
 
 const TrainCard = ( { data, setId } ) => {
     const { departure } = data;
@@ -61,4 +61,4 @@ const TrainCard = ( { data, setId } ) => {
     )
 }
 
-export default TrainCard;
+export { TrainCard };

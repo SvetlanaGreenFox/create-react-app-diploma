@@ -3,7 +3,7 @@ import styles from './PlacesSection.module.scss';
 import { useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import AboutTrain from './AboutTrain/AboutTrain';
+import AboutTrain from './AboutTrain';
 
 
 const PlacesSection = () => {
@@ -25,4 +25,4 @@ const PlacesSection = () => {
     )
 }
 
-export default PlacesSection;
+export { PlacesSection };
