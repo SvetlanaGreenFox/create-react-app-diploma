@@ -7,6 +7,9 @@ import AboutTrain from './AboutTrain';
 
 import {Routes, Route} from 'react-router-dom';
 import FirstClass from './Coach/FirstClass';
+import SecondClass from './Coach/SecondClass';
+import ThirdClass from './Coach/ThirdClass';
+import FourthClass from './Coach/FourthClass';
 
 
 const PlacesSection = () => {
@@ -26,6 +29,9 @@ const PlacesSection = () => {
             <Routes>
                 <Route path='train/*' exact element={<AboutTrain />}>
                     <Route path='first' element={<FirstClass />}/>
+                    <Route path='second' element={<SecondClass />}/>
+                    <Route path='third' element={<ThirdClass />}/>
+                    <Route path='fourth' element={<FourthClass />}/>
                 </Route>
             </Routes>
         </section>

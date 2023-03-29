@@ -11,22 +11,20 @@ import { TrainLightrailFrontFill } from 'react-bootstrap-icons';
 import { TrainFreightFrontFill } from 'react-bootstrap-icons';
 import { Outlet } from 'react-router-dom';
 
-import FirstClass from '../Coach/FirstClass';
-
 const AboutTrain = () => {
     const listCoach = [
         {
-          path: '',
+          path: 'fourth',
           pageName: 'Сидячий',
           icon: <MdOutlineAirlineSeatReclineExtra />,
         },
         {
-          path: '',
+          path: 'third',
           pageName: 'Плацкарт',
           icon: <TrainFreightFrontFill /> ,
         },
         {
-          path: '',
+          path: 'second',
           pageName: 'Купе',
           icon: <TrainLightrailFrontFill />,
         },
@@ -43,7 +41,7 @@ const AboutTrain = () => {
     
     const activeClasses = cn(styles['coach-menu__item'], styles['coach-menu__item-active']);
     const noActiveClasses = styles['coach-menu__item'];
-     
+    console.log(Outlet);
     return (
         <section className={styles['about-train']}>
             <div className={styles['back-btns-group']}>
