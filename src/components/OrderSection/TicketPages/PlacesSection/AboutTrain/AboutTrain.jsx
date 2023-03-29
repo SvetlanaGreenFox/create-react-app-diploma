@@ -41,7 +41,7 @@ const AboutTrain = () => {
     
     const activeClasses = cn(styles['coach-menu__item'], styles['coach-menu__item-active']);
     const noActiveClasses = styles['coach-menu__item'];
-    console.log(Outlet);
+    
     return (
         <section className={styles['about-train']}>
             <div className={styles['back-btns-group']}>
