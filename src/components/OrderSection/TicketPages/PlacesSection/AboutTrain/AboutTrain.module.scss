@@ -1,8 +1,82 @@
+@import '../../../../../styles/colors';
+@import '../../../../../styles/mixins';
+
 .about-train {
     background-color: #FFFFFF;
     border: solid 1px #C4C4C4;
+    padding-bottom: 70px;
 }
 
 .back-btns-group {
-    
+  display: flex;
+  
+  padding: 20px 36px;
 }
+
+.back-icon__wrapper {
+    width: 76px;
+    height: 60px;
+
+    background-color: $main-orange;
+    border-radius: 5px;
+
+    color: white;
+    font-size: 3vw;
+    font-weight: 700;
+    text-align: center;
+    line-height: 8.5vh;
+}
+.back-btn {
+    @include searchBtns(); 
+
+    background-color: #FFFFFF;
+    border: solid 1px #292929;
+    width: 40%;
+
+    margin-left: 1vw;
+}
+
+.train-info {
+    display: flex;
+
+    height: 123px;
+    background-color: #F7F6F6; 
+    padding: 35px 19px 19px 16px;
+}
+
+.title {
+    font-size: 30px;
+    font-weight: 700px;
+}
+
+.tickets-info {
+    padding: 40px 17px;
+    border-bottom: dashed 1px $main-light;
+}
+
+.coach-menu {
+    padding: 40px 17px;  
+}
+.coach-menu__list {
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 25px;
+}
+.coach-menu__item {
+    width: 100%;
+    text-decoration: none;
+    color: #C4C4C4;
+    text-align: center; 
+}
+
+.coach-menu__item-active,
+.coach-menu__item-active:focus {
+    color: $main-orange;
+    outline: none;
+}
+
+.coach-menu__icon {
+    font-size: 3vw;
+}
+

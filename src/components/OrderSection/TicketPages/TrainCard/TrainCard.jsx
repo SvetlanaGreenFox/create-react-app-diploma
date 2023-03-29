@@ -53,7 +53,7 @@ const TrainCard = ( { data, setId } ) => {
                 <SeatList data={departure} />
                 <div className={styles['btn-wrapper']}>
                     <button className={styles['train-card__btn']} onClick={() => setId(departure['_id'])}>
-                        <NavLink to='/order/list/places'>Выбрать места</NavLink>
+                        <NavLink to='/order/list/places/train'>Выбрать места</NavLink>
                     </button>
                 </div>
             </div>

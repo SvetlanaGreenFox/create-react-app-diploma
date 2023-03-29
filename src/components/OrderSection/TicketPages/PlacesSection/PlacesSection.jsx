@@ -5,6 +5,9 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import AboutTrain from './AboutTrain';
 
+import {Routes, Route} from 'react-router-dom';
+import FirstClass from './Coach/FirstClass';
+
 
 const PlacesSection = () => {
     const departureId = useSelector(state => state.selectTrain);
@@ -20,7 +23,11 @@ const PlacesSection = () => {
     return (
         <section className={styles.places}>
             <h3 className={styles['places__title']}>Выбор мест</h3>
-            <AboutTrain />
+            <Routes>
+                <Route path='train/*' exact element={<AboutTrain />}>
+                    <Route path='first' element={<FirstClass />}/>
+                </Route>
+            </Routes>
         </section>
     )
 }

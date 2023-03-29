@@ -10,6 +10,7 @@ import { Routes, Route } from 'react-router-dom';
 import PlacesSection from './TicketPages/PlacesSection';
 import FirstClass from './TicketPages/PlacesSection/Coach/FirstClass';
 import PassengersSection from './PassengersSection/PassengersSection';
+import AboutTrain from './TicketPages/PlacesSection/AboutTrain';
 
 
 const OrderSection = () => {
@@ -23,7 +24,9 @@ const OrderSection = () => {
                     <Route path='tickets' element={<TicketList />} />
                     <Route path='last/:id' element={<LastTicketsList />} />
                     <Route path='places/*' element={<PlacesSection />}> 
-                        <Route path='first' element={<FirstClass />}/>
+                        {/* <Route path='train' element={<AboutTrain />}>
+                            <Route path='first' element={<FirstClass />}/>
+                        </Route> */}
                     </Route>
                 </Route>
                 <Route path='passengers' element={<PassengersSection />}>

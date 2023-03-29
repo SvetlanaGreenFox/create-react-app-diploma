@@ -1,5 +1,5 @@
 import styles from "./AboutSectionContent.module.scss";
-import cx from "classnames";
+import cn from "classnames";
 
 const AboutSectionHContent = () => {
     return (
@@ -11,7 +11,7 @@ const AboutSectionHContent = () => {
                 <p className={styles.aboutDescription__item}>Сегодня можно заказать железнодорожные билеты онлайн всего в 2 клика, но стоит ли это делать? 
                 Мы расскажем о преимуществах заказа через интернет.
                 </p>
-                <p className={ cx(styles.aboutDescription__item, styles['aboutDescription__item_bold']) }>Покупать жд билеты дешево можно за 90 суток до отправления поезда. 
+                <p className={ cn(styles.aboutDescription__item, styles['aboutDescription__item_bold']) }>Покупать жд билеты дешево можно за 90 суток до отправления поезда. 
                 Благодаря динамическому ценообразованию цена на билеты в это время самая низкая.
                 </p>
             </div>
