@@ -1,6 +1,6 @@
 import styles from './TicketList.module.scss';
-import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { setSelectTrain } from '../../../../features/slices/selectTrain';
 import axios from 'axios';

@@ -1,10 +1,13 @@
 import styles from './FirstClass.module.scss';
+import { useSelector } from 'react-redux';
 
 const FirstClass = () => {
-    console.log('first');
+    const seats = useSelector(state => state.sortSeats.first);
+    console.log('first', seats);
+
     return (
         <div>
-            ghbjdjhbdjsbj
+            first
         </div>
     )
 };

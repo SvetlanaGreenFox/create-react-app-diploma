@@ -1,11 +1,11 @@
 import styles from './PlacesSection.module.scss';
-
-import { useSelector } from 'react-redux';
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import AboutTrain from './AboutTrain';
-
+import { useEffect } from 'react';
 import {Routes, Route} from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+
+import axios from 'axios';
+import { setTotalSeats } from '../../../../features/slices/totalSeats'; 
+import AboutTrain from './AboutTrain';
 import FirstClass from './Coach/FirstClass';
 import SecondClass from './Coach/SecondClass';
 import ThirdClass from './Coach/ThirdClass';
@@ -14,14 +14,15 @@ import FourthClass from './Coach/FourthClass';
 
 const PlacesSection = () => {
     const departureId = useSelector(state => state.selectTrain);
-    const [seats, setSeats] = useState();
+    const dispatch = useDispatch();
 
     useEffect(() => {
         axios.get(`https://netology-trainbooking.netoservices.ru/routes/${departureId.id}/seats`)
-        .then(res => setSeats(res.data));
+        .then(res => {
+            dispatch(setTotalSeats(res.data))
+        });
     }, []);
 
-    console.log(seats);
 
     return (
         <section className={styles.places}>
@@ -34,6 +35,7 @@ const PlacesSection = () => {
                     <Route path='fourth' element={<FourthClass />}/>
                 </Route>
             </Routes>
+
         </section>
     )
 }

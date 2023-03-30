@@ -1,5 +1,5 @@
 import styles from './Coach.module.scss';
-import Scheme from './Scheme';
+import Scheme from '../Scheme';
 
 const Coach = () => {
     return (
@@ -62,4 +62,4 @@ const Coach = () => {
     )
 }
 
-export default Coach;
+export { Coach };
