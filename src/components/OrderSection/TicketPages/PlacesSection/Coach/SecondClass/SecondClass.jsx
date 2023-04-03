@@ -4,6 +4,8 @@ import { useSelector } from 'react-redux';
 
 import cn from 'classnames';
 
+import Scheme from '../Scheme';
+
 import { BiRuble } from 'react-icons/bi';
 import { Snow } from 'react-bootstrap-icons';
 import { AiOutlineWifi } from 'react-icons/ai';
@@ -14,7 +16,7 @@ import Coach from '../Coach';
 
 const SecondClass = () => {
     const coachs = useSelector(state => state.sortSeats.second);
-    console.log('second', coachs);
+    // console.log('second', coachs);
     const [activeCoachId, setActiveCoachId] = useState(null);
     const [activeCoach, setActiveCoach] = useState();
     const [coachNums, setCoachNums] = useState([]);
@@ -25,6 +27,11 @@ const SecondClass = () => {
         setActiveCoachId(0);
         setActiveCoach(coachs[0]);
     }, [coachs]);
+
+    useEffect (() => {
+        console.log('use');
+        setActiveCoach(coachs[activeCoachId]);
+    }, [activeCoachId]);
 
     function getCoachNum (data) {
         console.log(data);
@@ -48,7 +55,7 @@ const SecondClass = () => {
                                     className={styles[activeCoachId === index ? 'numbers__item_active' : 'numbers__item']} 
                                     onClick={() => {
                                         setActiveCoachId(index);
-                                        setActiveCoach(coachs[index]);
+                                        // setActiveCoach(coachs[index]);
                                       }
                                      }
                                     >
@@ -113,28 +120,7 @@ const SecondClass = () => {
             </div>
             
             <div className={styles['scheme-wrapper']}>
-                <div className={styles['scheme']}>
-                    <div className={styles['coupe']}>
-                        <div className={styles['top-block']}>
-                            <div className={styles['top-block__item']}>
-                                <div className={styles['place']}>1</div>
-                                <div className={styles['place']}>2</div> 
-                            </div>
-                            <div className={cn(styles['top-block__item'], styles['item-hidden'])}></div>
-                            <div className={styles['top-block__item']}>
-                                <div className={styles['place']}>1</div>
-                                <div className={styles['place']}>2</div>
-                            </div> 
-                        </div>
-                        <div className={styles['central-block']}>
-                            <p className={styles['text-hidden']}>---</p>
-                        </div>
-                        <div className={styles['bottom-block']}>
-                            <p className={styles['text-hidden']}>---</p>
-                        </div>
-                    </div>
-                    
-                </div>
+                { activeCoach ? <Scheme data={activeCoach.seats ? activeCoach.seats : []}/> : null }
             </div>
 
         </div>
