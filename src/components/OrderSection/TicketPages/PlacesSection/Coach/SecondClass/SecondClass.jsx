@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 import cn from 'classnames';
 
-import Scheme from '../Scheme';
+import Scheme from '../SchemeCoach';
 
 import { BiRuble } from 'react-icons/bi';
 import { Snow } from 'react-bootstrap-icons';
@@ -12,11 +12,11 @@ import { AiOutlineWifi } from 'react-icons/ai';
 import { BiBlanket } from 'react-icons/bi';
 import { RiCupFill } from 'react-icons/ri';
 
-import Coach from '../Coach';
+// import Coach from '../Coach';
 
 const SecondClass = () => {
     const coachs = useSelector(state => state.sortSeats.second);
-    // console.log('second', coachs);
+    console.log('second', coachs);
     const [activeCoachId, setActiveCoachId] = useState(null);
     const [activeCoach, setActiveCoach] = useState();
     const [coachNums, setCoachNums] = useState([]);
@@ -26,7 +26,7 @@ const SecondClass = () => {
         setCoachNums(prepData);
         setActiveCoachId(0);
         setActiveCoach(coachs[0]);
-    }, [coachs]);
+    }, []);
 
     useEffect (() => {
         console.log('use');

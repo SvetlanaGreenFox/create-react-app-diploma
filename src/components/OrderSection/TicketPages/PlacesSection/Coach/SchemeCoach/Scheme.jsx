@@ -1,6 +1,8 @@
 import styles from './Scheme.module.scss';
 import { useState, useEffect } from 'react';
 import cn from 'classnames';
+import uniqid from 'uniqid';
+// import { updateLocale } from 'moment/moment';
 
 const Scheme = (props) => {
     // console.log('data', props);
@@ -8,12 +10,12 @@ const Scheme = (props) => {
 
     const coupeSize = 4;
 
-    const [activePlace, setActivePlace] = useState(null);
+    const [activePlaces, setActivePlaces] = useState([]);
     const [coupe, setCoupe ] = useState([]);
 
     useEffect(() => {
         const res = data.reduce((p,c)=>{
-            if(p[p.length-1].length == coupeSize){
+            if(p[p.length-1].length === coupeSize){
               p.push([]);
             }
             
@@ -24,28 +26,30 @@ const Scheme = (props) => {
         setCoupe(res);
     }, [data]);
 
-    console.log(activePlace);
-    function selectPlace(idx) {
-        console.log(idx);
+    function removePlace (index) {
+        const updateState = activePlaces.filter((item) => item !== index);
+        setActivePlaces( updateState ); 
     }
 
-     
+    function addPlace(index) {
+        setActivePlaces( prev => [...prev, index] );
+    }
 
     return (
             <div className={styles['scheme']}>
                 {coupe ? coupe.map((item) => {
-                    // console.log('item', item[1]);
                     
                     return (
-                        <div className={styles['coupe']}>
+                        <div key={uniqid()} className={styles['coupe']}>
                             <div className={styles['top-block']}>
                                 {item.map( ({ index, available }) => {
                                     return (
                                         <div 
+                                        key={uniqid()}
                                         className={cn(styles.place, !available ? styles.busy : (
-                                            activePlace === index ? cn(styles.active, styles.free) : styles.free
+                                            activePlaces.includes(index) ? cn(styles.active, styles.free) : styles.free 
                                         ))}
-                                        onClick={() => setActivePlace(index)}
+                                        onClick={() => activePlaces.includes(index) ? removePlace(index) :  addPlace(index)}
                                         >
                                             {index}
                                         </div>  
@@ -67,4 +71,4 @@ const Scheme = (props) => {
     )
 }
 
-export default Scheme;
+export { Scheme };

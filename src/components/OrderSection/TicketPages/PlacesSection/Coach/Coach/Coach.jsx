@@ -1,5 +1,5 @@
 import styles from './Coach.module.scss';
-import Scheme from '../Scheme';
+import Scheme from '../SchemeCoach';
 
 const Coach = () => {
     return (
