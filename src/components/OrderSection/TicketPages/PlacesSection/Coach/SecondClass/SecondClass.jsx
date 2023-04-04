@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import cn from 'classnames';
 
 import Scheme from '../SchemeCoach';
+import CoachInfo from '../CoachInfo';
 
 import { BiRuble } from 'react-icons/bi';
 import { Snow } from 'react-bootstrap-icons';
@@ -41,7 +42,7 @@ const SecondClass = () => {
 
     return (
         <div className={styles.coach}>
-            <div className={styles[coachNums.length > 1 ? 'numbers_active' : 'numbers_hidden']}>
+            {/* <div className={styles[coachNums.length > 1 ? 'numbers_active' : 'numbers_hidden']}>
                 <div className={styles['numbers-wrapper']}>
                     <p className={styles['numbers__title']}>Вагоны</p>
                     <div className={styles['numbers__list']}>
@@ -113,7 +114,9 @@ const SecondClass = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
+
+            <CoachInfo coachData={ coachs }/>
             
             <div className={styles['scheme-wrapper']}>
                 { activeCoach ? <Scheme data={activeCoach.seats ? activeCoach.seats : []}/> : null }

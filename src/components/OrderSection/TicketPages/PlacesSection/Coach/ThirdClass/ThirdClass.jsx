@@ -1,13 +1,14 @@
 import styles from './ThirdClass.module.scss';
 import { useSelector } from 'react-redux';
 
+import CoachInfo from '../CoachInfo';
+
 const ThirdClass = () => {
-    const seats = useSelector(state => state.sortSeats.third);
-    console.log('third', seats);
+    const coachs = useSelector(state => state.sortSeats.third);
 
     return (
         <div>
-            third
+            <CoachInfo coachData={ coachs }/>
         </div>
     )
 };

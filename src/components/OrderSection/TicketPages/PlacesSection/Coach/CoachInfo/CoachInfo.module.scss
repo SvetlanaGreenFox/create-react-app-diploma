@@ -54,6 +54,7 @@
     width: 25%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     background-color: rgba(255, 168, 0, 0.44);
 }
@@ -121,34 +122,39 @@
     border-radius: 5px;
     text-align: center;
     vertical-align: middle;
-    line-height: 4.3vh;
+    line-height: 35px;
     margin-right: 7px;
+    cursor: pointer;
 }
 .option__icon {
-    font-size: 1.5vw;
+    font-size: 18px;
 }
 
 .option_noInclided {
     border: 1px solid #000000;
-    cursor: pointer;
 }
 .option_noInclided:hover {
     background-color: $main-orange;
     transition: 0.3s;
-}
-
-.option_active {
-    background-color: $main-orange;
-    color: #FFFFFF;
-    border: none;
 }
 .option_included {
     background-color: #FCDC9D;
     color: #000000;
     opacity: 0.6;
     border: none;
+    cursor: auto;
+}
+.option_selected {
+    background-color: $main-orange;
+    color: #FFFFFF;
+    border: none;
 }
 
+// .option_active {
+//     background-color: $main-orange;
+//     color: #FFFFFF;
+//     border: none;
+// }
 
 
 .scheme-wrapper {
