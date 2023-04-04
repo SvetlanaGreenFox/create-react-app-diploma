@@ -36,6 +36,12 @@ const CoachInfo = (props) => {
         return Number(coachName.match( numberPattern ));
     };
 
+    const forAll = cn(styles['icon-wrapper']); //общий класс для всех опций
+    const noIncluded = cn(styles['option_noInclided']) //опции не включены и доступны к выбору
+    const included = cn(styles['icon-wrapper'], styles['option_included']); //опции включены и от них нельзы отказаться,опции не активны
+    const selected = cn(styles['option_selected']); //опции добавлены пользователем к стоимости билеты
+
+
     console.log('activeCoach', activeCoach);
     return (
         <div>
@@ -131,8 +137,10 @@ const CoachInfo = (props) => {
                             <p className={styles['options__description']}>фпк</p>
                         </div>
                         <div className={styles['options__icons']}>
-                            <div className={cn(styles['icon-wrapper'], styles['icon_active'])}><Snow className={styles['option__icon']} /></div>
-                            <div className={styles['icon-wrapper']}><AiOutlineWifi className={styles['option__icon']} /></div>
+                            <div className={cn(styles['icon-wrapper'], styles['option_active'])}>
+                                <Snow className={styles['option__icon']} />
+                            </div>
+                            <div className={cn(styles['icon-wrapper'], styles['option_included'])}><AiOutlineWifi className={styles['option__icon']} /></div>
                             <div className={styles['icon-wrapper']}><BiBlanket className={styles['option__icon']} /></div>
                             <div className={styles['icon-wrapper']}><RiCupFill className={styles['option__icon']} /></div> 
                         </div>

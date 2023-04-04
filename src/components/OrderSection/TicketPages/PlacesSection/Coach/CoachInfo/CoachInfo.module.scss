@@ -118,7 +118,6 @@
 .icon-wrapper {
     width: 30px;
     height: 30px;
-    border: 1px solid #000000;
     border-radius: 5px;
     text-align: center;
     vertical-align: middle;
@@ -128,9 +127,25 @@
 .option__icon {
     font-size: 1.5vw;
 }
-.icon_active {
+
+.option_noInclided {
+    border: 1px solid #000000;
+    cursor: pointer;
+}
+.option_noInclided:hover {
+    background-color: $main-orange;
+    transition: 0.3s;
+}
+
+.option_active {
     background-color: $main-orange;
     color: #FFFFFF;
+    border: none;
+}
+.option_included {
+    background-color: #FCDC9D;
+    color: #000000;
+    opacity: 0.6;
     border: none;
 }
 
