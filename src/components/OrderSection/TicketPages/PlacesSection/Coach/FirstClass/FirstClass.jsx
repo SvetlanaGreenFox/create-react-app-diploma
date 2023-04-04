@@ -1,13 +1,13 @@
 import styles from './FirstClass.module.scss';
 import { useSelector } from 'react-redux';
+import CoachInfo from '../CoachInfo';
 
 const FirstClass = () => {
-    const seats = useSelector(state => state.sortSeats.first);
-    console.log('first', seats);
+    const coachs = useSelector(state => state.sortSeats.first);
 
     return (
         <div>
-            first
+            <CoachInfo coachData={ coachs }/>
         </div>
     )
 };

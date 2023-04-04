@@ -1,10 +1,8 @@
-import styles from './SecondClass.module.scss';
+import styles from './CoachInfo.module.scss';
+// import Scheme from '../SchemeCoach';
 import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
 
 import cn from 'classnames';
-
-import Scheme from '../SchemeCoach';
 
 import { BiRuble } from 'react-icons/bi';
 import { Snow } from 'react-bootstrap-icons';
@@ -12,24 +10,23 @@ import { AiOutlineWifi } from 'react-icons/ai';
 import { BiBlanket } from 'react-icons/bi';
 import { RiCupFill } from 'react-icons/ri';
 
-// import Coach from '../Coach';
-
-const SecondClass = () => {
-    const coachs = useSelector(state => state.sortSeats.second);
-    console.log('data', coachs);
+const CoachInfo = (props) => {
+    console.log('CoachInfo');
+    const { coachData } = props;
+    console.log(coachData);
     const [activeCoachId, setActiveCoachId] = useState(null);
     const [activeCoach, setActiveCoach] = useState();
     const [coachNums, setCoachNums] = useState([]);
 
     useEffect(() => {
-        const prepData = coachs.map((item) => getCoachNum(item));
+        const prepData = coachData.map((item) => getCoachNum(item));
         setCoachNums(prepData);
         setActiveCoachId(0);
-        setActiveCoach(coachs[0]);
-    }, []);
+        setActiveCoach(coachData[0]);
+    }, [coachData]);
 
     useEffect (() => {
-        setActiveCoach(coachs[activeCoachId]);
+        setActiveCoach(coachData[activeCoachId]);
     }, [activeCoachId]);
 
     function getCoachNum (data) {
@@ -39,8 +36,9 @@ const SecondClass = () => {
         return Number(coachName.match( numberPattern ));
     };
 
+    console.log('activeCoach', activeCoach);
     return (
-        <div className={styles.coach}>
+        <div>
             <div className={styles[coachNums.length > 1 ? 'numbers_active' : 'numbers_hidden']}>
                 <div className={styles['numbers-wrapper']}>
                     <p className={styles['numbers__title']}>Вагоны</p>
@@ -63,42 +61,69 @@ const SecondClass = () => {
                 </div>
                 <p className={styles['numbers__notification']}>Нумерация вагонов начинается с головы поезда</p>
             </div>
-            <div className={styles['coach-info']}>
+            { activeCoach ? (
+                <div className={styles['coach-info']}>
                 <div className={styles['number-section']}>
-                    <p className={styles['number-section__number']}>{ activeCoach ? getCoachNum(activeCoach) : ''}</p>
+                    <p className={styles['number-section__number']}>{ getCoachNum(activeCoach)}</p>
                     <p className={styles['number-section__description']}>вагон</p>
                 </div>
                 <div className={styles['coach-info_inner-wrapper']}>
                     <div className={cn(styles['coach-info__item'], styles['seats-section'])}>
                         <div className={styles['section__item']}>
                             <p className={styles['section__title']}>Места</p>
-                            <p className={styles['seats-section__totalCount']}>20</p>
+                            <p className={styles['seats-section__totalCount']}>{ activeCoach.coach['available_seats'] }</p>
                         </div>
-                        <div className={styles['seats-list']}>
-                            <div className={styles['section__item']}>
-                                <p className={styles['seats__name']}>Верхние</p>
-                                <p className={styles['seats__count']}>10</p>
+                        { activeCoach.coach['class_type'] === 'first' || activeCoach.coach['class_type'] === 'fourth' ? (
+                            null
+                        ) : ( 
+                            <div className={styles['seats-list']}>
+                                <div className={styles['section__item']}>
+                                    <p className={styles['seats__name']}>Верхние</p>
+                                    <p className={styles['seats__count']}>0</p>
+                                </div>
+                                <div className={styles['section__item']}>
+                                    <p className={styles['seats__name']}>Нижние</p>
+                                    <p className={styles['seats__count']}>0</p>
+                                </div>
+
+                                { activeCoach.coach['class_type'] === 'third' ? (
+                                    <div className={styles['section__item']}>
+                                        <p className={styles['seats__name']}>Боковые</p>
+                                        <p className={styles['seats__count']}>0</p>
+                                    </div>
+                                    ) : 
+                                null }
                             </div>
-                            <div className={styles['section__item']}>
-                                <p className={styles['seats__name']}>Нижние</p>
-                                <p className={styles['seats__count']}>10</p>
-                            </div>
-                        </div>
+                        ) }
                     </div>
                     <div className={cn(styles['coach-info__item'], styles['price-section'])}>
                         <div className={styles['section__item']}>
                             <p className={styles['section__title']}>Стоимость</p>
                         </div>
-                        <div className={styles['list']}>
+                        { activeCoach.coach['class_type'] === 'first' || activeCoach.coach['class_type'] === 'fourth' ? (
                             <div className={styles['section__item']}>
-                                <p className={styles['price']}>2200</p>
+                                <p className={styles['price']}>{ activeCoach.coach['price'] }</p>
                                 <p className={styles['icon-rub']}><BiRuble /></p>
                             </div>
-                            <div className={styles['section__item']}>
-                                <p className={styles['price']}>2200</p>
-                                <p className={styles['icon-rub']}><BiRuble /></p>
+                        ) : (
+                            <div className={styles['list']}>
+                                <div className={styles['section__item']}>
+                                    <p className={styles['price']}>{ activeCoach.coach['top_price'] }</p>
+                                    <p className={styles['icon-rub']}><BiRuble /></p>
+                                </div>
+                                <div className={styles['section__item']}>
+                                    <p className={styles['price']}>{ activeCoach.coach['bottom_price'] }</p>
+                                    <p className={styles['icon-rub']}><BiRuble /></p>
+                                </div>
+
+                                { activeCoach.coach['class_type'] === 'third' ? (
+                                    <div className={styles['section__item']}>
+                                        <p className={styles['price']}>{ activeCoach.coach['bottom_side'] }</p>
+                                        <p className={styles['icon-rub']}><BiRuble /></p>
+                                    </div>   
+                                ) : null }
                             </div>
-                        </div>
+                        )}
                     </div>
                     <div className={cn(styles['coach-info__item'], styles['options-section'])}>
                         <div className={styles['section__item']}>
@@ -106,7 +131,7 @@ const SecondClass = () => {
                             <p className={styles['options__description']}>фпк</p>
                         </div>
                         <div className={styles['options__icons']}>
-                            <div className={styles['icon-wrapper']}><Snow className={styles['option__icon']} /></div>
+                            <div className={cn(styles['icon-wrapper'], styles['icon_active'])}><Snow className={styles['option__icon']} /></div>
                             <div className={styles['icon-wrapper']}><AiOutlineWifi className={styles['option__icon']} /></div>
                             <div className={styles['icon-wrapper']}><BiBlanket className={styles['option__icon']} /></div>
                             <div className={styles['icon-wrapper']}><RiCupFill className={styles['option__icon']} /></div> 
@@ -114,15 +139,9 @@ const SecondClass = () => {
                     </div>
                 </div>
             </div>
-            
-            <div className={styles['scheme-wrapper']}>
-                { activeCoach ? <Scheme data={activeCoach.seats ? activeCoach.seats : []}/> : null }
-            </div>
-
+            ) : ''}
         </div>
     )
-        
-    
-};
+}
 
-export { SecondClass };
+export { CoachInfo };

@@ -1,0 +1,146 @@
+@import '../../../../../../styles/colors';
+
+.numbers_active {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+
+    padding-right: 5px;
+    padding-left: 30px;
+    background-color: rgba(255, 168, 0, 0.44);
+}
+.numbers_hidden {
+    display: none;
+}
+
+.numbers-wrapper {
+    display: flex;
+    align-items: center;
+}
+.numbers__title {
+    font-size: 18px;
+
+    margin-right: 6px;
+}
+.numbers__list {
+    display: flex;
+}
+.numbers__item {
+    font-weight: 600;
+    color: #000000;
+    margin-right: 6px;
+}
+.numbers__item_active {
+    font-weight: 600;
+    color: #FFFFFF;
+    margin-right: 6px;
+}
+.numbers__item,
+.numbers__item_active:hover {
+    cursor: pointer;
+}
+.numbers__notification {
+    font-size: 14px;
+}
+
+.coach-info {
+    display: flex;
+    // justify-content: space-between;
+    // padding-right: 40px;
+}
+
+.number-section {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(255, 168, 0, 0.44);
+}
+.number-section__number {
+    font-size: 6vw;
+    font-weight: 700px;
+}
+.number-section__description {
+    font-size: 2vw;
+    font-weight: 400; 
+}
+
+.coach-info_inner-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 33px 40px 20px 50px;
+}
+.coach-info__item {
+    width: 30%; 
+}
+
+.section__item {
+    display: flex;
+    width: 100%;
+    margin-bottom: 6px;
+}
+.section__title {
+    font-size: 14px;
+    color: #928F94;
+    margin-right: 5px;
+}
+
+.seats-section__totalCount {
+    font-size: 14px;
+    font-weight: 600;
+    color: #000000;
+}
+
+.section__item {
+    font-size: 24px;
+    font-weight: 500;
+    color: #000000;
+}
+.seats__name,
+.price {
+    padding-right: 6px;
+}
+.icon-rub {
+    color: #928F94;
+}
+
+.options__description {
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #C4C4C4;
+}
+
+.options__icons {
+    display: flex;
+}
+.icon-wrapper {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 4.3vh;
+    margin-right: 7px;
+}
+.option__icon {
+    font-size: 1.5vw;
+}
+.icon_active {
+    background-color: $main-orange;
+    color: #FFFFFF;
+    border: none;
+}
+
+
+
+.scheme-wrapper {
+    border: 1px solid #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 15px 0px;
+}

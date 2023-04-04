@@ -13,7 +13,6 @@ const sortSeatsSlice = createSlice({
   reducers: {
     setSortSeats(state, action) {
       const { first, second, third, fourth } = action.payload;
-      console.log(first, second, third, fourth);
       state.first = first;
       state.second = second;
       state.third = third;
