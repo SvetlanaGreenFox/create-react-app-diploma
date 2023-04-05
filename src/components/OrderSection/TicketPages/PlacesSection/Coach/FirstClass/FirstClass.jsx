@@ -6,10 +6,9 @@ import SchemeFirstClass from '../CoachSchemes/ShemeFirstClass';
 
 
 const FirstClass = () => {
-    console.log('first');
+    // console.log('first');
     const coachs = useSelector(state => state.sortSeats.first);
     const selectCoach = useSelector(state => state.selectCoach);
-    console.log('select', selectCoach.activeCoach);
 
     return (
         <div>

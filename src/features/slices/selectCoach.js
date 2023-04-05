@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    activeCoach: {},
+    activeCoach: null,
 };
 
 const selectCoachSlice = createSlice({

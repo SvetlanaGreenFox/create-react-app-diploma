@@ -1,10 +1,11 @@
-import styles from './SchemeSecondClass.module.scss';
+import styles from './SchemeThirdClass.module.scss';
 import { useState, useEffect } from 'react';
 
 import cn from 'classnames';
 import uniqid from 'uniqid';
 
-const SchemeSecondClass = (props) => {
+const SchemeThirdClass = (props) => {
+
     const { data } = props;
 
     const coupeSize = 4;
@@ -68,6 +69,7 @@ const SchemeSecondClass = (props) => {
             </div>    
 
     )
+
 }
 
-export { SchemeSecondClass };
+export { SchemeThirdClass };

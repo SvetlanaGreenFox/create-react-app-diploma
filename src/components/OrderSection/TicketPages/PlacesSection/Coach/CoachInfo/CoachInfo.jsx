@@ -28,17 +28,14 @@ const CoachInfo = (props) => {
         setCoachNums(prepData);
         setActiveCoachId(0);
         setActiveCoach(coachData[0]);
-        // activeCoach.coach['is_linens_included'] ? setSelectedOptions(prev => [...prev, 'is_linens_included']) : null;
     }, [coachData]);
 
-    console.log(activeCoach);
     useEffect(() => {
         setActiveCoach(coachData[activeCoachId]);
+        // dispatch(setSelectCoach(coachData[activeCoachId]));
     }, [activeCoachId]);
 
     useEffect(() => {
-        console.log('use');
-        console.log(activeCoach);
         dispatch(setSelectCoach(activeCoach));
     }, [activeCoach]);
 
