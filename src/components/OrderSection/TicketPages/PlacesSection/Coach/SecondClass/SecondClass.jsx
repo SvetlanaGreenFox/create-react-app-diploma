@@ -2,43 +2,46 @@ import styles from './SecondClass.module.scss';
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
-import cn from 'classnames';
+// import cn from 'classnames';
 
-import Scheme from '../SchemeCoach';
+import SchemeSecondClass from '../CoachSchemes/SchemeSecondClass';
 import CoachInfo from '../CoachInfo';
 
-import { BiRuble } from 'react-icons/bi';
-import { Snow } from 'react-bootstrap-icons';
-import { AiOutlineWifi } from 'react-icons/ai';
-import { BiBlanket } from 'react-icons/bi';
-import { RiCupFill } from 'react-icons/ri';
+// import { BiRuble } from 'react-icons/bi';
+// import { Snow } from 'react-bootstrap-icons';
+// import { AiOutlineWifi } from 'react-icons/ai';
+// import { BiBlanket } from 'react-icons/bi';
+// import { RiCupFill } from 'react-icons/ri';
 
 // import Coach from '../Coach';
 
 const SecondClass = () => {
+    console.log('second');
     const coachs = useSelector(state => state.sortSeats.second);
-    console.log('data', coachs);
-    const [activeCoachId, setActiveCoachId] = useState(null);
-    const [activeCoach, setActiveCoach] = useState();
-    const [coachNums, setCoachNums] = useState([]);
+    console.log(coachs);
+    const selectCoach = useSelector(state => state.selectCoach);
+    // console.log('select', selectCoach.activeCoach);
+    // const [activeCoachId, setActiveCoachId] = useState(null);
+    // const [activeCoach, setActiveCoach] = useState();
+    // const [coachNums, setCoachNums] = useState([]);
 
-    useEffect(() => {
-        const prepData = coachs.map((item) => getCoachNum(item));
-        setCoachNums(prepData);
-        setActiveCoachId(0);
-        setActiveCoach(coachs[0]);
-    }, []);
+    // useEffect(() => {
+    //     const prepData = coachs.map((item) => getCoachNum(item));
+    //     setCoachNums(prepData);
+    //     setActiveCoachId(0);
+    //     setActiveCoach(coachs[0]);
+    // }, []);
 
-    useEffect (() => {
-        setActiveCoach(coachs[activeCoachId]);
-    }, [activeCoachId]);
+    // useEffect (() => {
+    //     setActiveCoach(coachs[activeCoachId]);
+    // }, [activeCoachId]);
 
-    function getCoachNum (data) {
-        const coachName = data.coach.name;
-        const numberPattern = /\d+/g;
+    // function getCoachNum (data) {
+    //     const coachName = data.coach.name;
+    //     const numberPattern = /\d+/g;
 
-        return Number(coachName.match( numberPattern ));
-    };
+    //     return Number(coachName.match( numberPattern ));
+    // };
 
     return (
         <div className={styles.coach}>
@@ -119,7 +122,7 @@ const SecondClass = () => {
             <CoachInfo coachData={ coachs }/>
             
             <div className={styles['scheme-wrapper']}>
-                { activeCoach ? <Scheme data={activeCoach.seats ? activeCoach.seats : []}/> : null }
+                { selectCoach.activeCoach ? <SchemeSecondClass data={ selectCoach.activeCoach.seats }/> : null }
             </div>
 
         </div>

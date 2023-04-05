@@ -1,4 +1,4 @@
-@import '../../../../../../styles/colors';
+@import '../../../../../../../styles/colors';
 
 .scheme {
     display: flex;
@@ -10,14 +10,6 @@
     flex-wrap: wrap;
     width: 70px;
 }
-
-// .top-block {
-//     display: flex;
-//     border-top: 2px solid #928F94;
-//     border-left: 2px solid #928F94;
-//     border-right: 2px solid #928F94;
-//     height: 50%;
-// }
 
 .top-block {
     display: flex;
@@ -32,11 +24,13 @@
 
 .place {
     max-width: 50%;
-    height: 50%;
+    height: 100%;
     background-color: #928F94;
     text-align: center;
-    line-height: 3vh;
+    // vertical-align: bottom;
+    line-height: 10vh;
     cursor: pointer;
+    border-bottom: solid 2px #928F94;
 }
 .place:hover {
     font-weight: 700;
@@ -45,22 +39,31 @@
 .place:focus {
     border: none;
 }
-.place:nth-child(-n + 2) {
-    margin-right: 3px;
+.place:nth-child(odd) {
+    margin-right: 4px;
 }
-.place:nth-child(n + 3) {
-    margin-left: 3px;
+.place:nth-child(even) {
+    margin-left: 4px;
+}
+.place-left {
+    cursor: pointer;
+    margin-right: .5vw;
+}
+.place-right {
+    cursor: pointer;
+    margin-left: .5vw;
 }
 .active {
     font-weight: 700;
     border: solid 2px $main-orange;
 }
 
-
-
-
-.top-block__item {
-    border-bottom: 2px solid #928F94; 
+.free {
+    background-color: #F3F3F3;
+}
+.busy {
+    background-color: #928F94;
+    color: #FFFFFF;
 }
 
 .bottom-block {
@@ -72,28 +75,6 @@
 .central-block {
     height: 25%;
 }
-.top-block__item {
-    text-align: center;
-    flex: 1 1 0px;
-}
 .text-hidden {
     opacity: 0;
-}
-
-.place-left {
-    cursor: pointer;
-    margin-right: .5vw;
-}
-.place-right {
-    cursor: pointer;
-    margin-left: .5vw;
-}
-
-.free {
-    background-color: #F3F3F3;
-}
-
-.busy {
-    background-color: #928F94;
-    color: #FFFFFF;
 }

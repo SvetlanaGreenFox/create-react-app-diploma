@@ -1,10 +1,10 @@
-import styles from './Scheme.module.scss';
+import styles from './SchemeSecondClass.module.scss';
 import { useState, useEffect } from 'react';
 import cn from 'classnames';
 import uniqid from 'uniqid';
 // import { updateLocale } from 'moment/moment';
 
-const Scheme = (props) => {
+const SchemeSecondClass = (props) => {
     // console.log('data', props);
     const { data } = props;
 
@@ -71,4 +71,4 @@ const Scheme = (props) => {
     )
 }
 
-export { Scheme };
+export { SchemeSecondClass };

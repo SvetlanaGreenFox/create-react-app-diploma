@@ -1,6 +1,8 @@
 import styles from './CoachInfo.module.scss';
 // import Scheme from '../SchemeCoach';
 import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { setSelectCoach }  from '../../../../../../features/slices/selectCoach';
 
 import cn from 'classnames';
 // import uniqid from 'uniqid';
@@ -19,22 +21,7 @@ const CoachInfo = (props) => {
     const [activeCoach, setActiveCoach] = useState();
     const [coachNums, setCoachNums] = useState([]);
     const [selectedOptions, setSelectedOptions] = useState([]);
-
-    // const options = [
-    //     {
-    //        name: 'have_wifi',
-    //        icon: <Snow />  
-    //     },
-    //     {
-    //        name: 'have_air_conditioning', 
-    //        icon: <AiOutlineWifi />
-    //     },
-    //     {
-    //         name: 'is_linens_included',
-    //         icon: <BiBlanket />
-    //     }
-    // ];
-
+    const dispatch = useDispatch();
 
     useEffect(() => {
         const prepData = coachData.map((item) => getCoachNum(item));
@@ -44,9 +31,16 @@ const CoachInfo = (props) => {
         // activeCoach.coach['is_linens_included'] ? setSelectedOptions(prev => [...prev, 'is_linens_included']) : null;
     }, [coachData]);
 
-    useEffect (() => {
+    console.log(activeCoach);
+    useEffect(() => {
         setActiveCoach(coachData[activeCoachId]);
     }, [activeCoachId]);
+
+    useEffect(() => {
+        console.log('use');
+        console.log(activeCoach);
+        dispatch(setSelectCoach(activeCoach));
+    }, [activeCoach]);
 
     function getCoachNum (data) {
         const coachName = data.coach.name;
@@ -70,7 +64,7 @@ const CoachInfo = (props) => {
     const selected = cn(styles['icon-wrapper'], styles['option_selected']); //опции добавлены пользователем к стоимости билеты
 
 
-    console.log('selected', selectedOptions);
+    // console.log('selected', selectedOptions);
     return (
         <div>
             <div className={styles[coachNums.length > 1 ? 'numbers_active' : 'numbers_hidden']}>
