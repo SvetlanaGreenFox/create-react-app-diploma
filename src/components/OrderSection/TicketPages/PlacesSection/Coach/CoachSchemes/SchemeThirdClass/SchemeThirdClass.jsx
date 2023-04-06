@@ -5,11 +5,7 @@ import cn from 'classnames';
 import uniqid from 'uniqid';
 
 const SchemeThirdClass = (props) => {
-    //нечетные нижние
-    //четные верхние
-    
     const { data } = props;
-    console.log(data);
     const [activePlaces, setActivePlaces] = useState([]);
     const [coupe, setCoupe ] = useState([]);
 

@@ -14,32 +14,45 @@ import { BiBlanket } from 'react-icons/bi';
 import { RiCupFill } from 'react-icons/ri';
 
 const CoachInfo = (props) => {
-    console.log('CoachInfo');
     const { coachData } = props;
-    console.log(coachData);
     const [activeCoachId, setActiveCoachId] = useState(null);
     const [activeCoach, setActiveCoach] = useState();
     const [coachNums, setCoachNums] = useState([]);
     const [selectedOptions, setSelectedOptions] = useState([]);
+    const [countTop, setCountTop] = useState(null);
+    const [countBottom, setCountBottom] = useState(null);
     const dispatch = useDispatch();
 
     useEffect(() => {
         const prepData = coachData.map((item) => getCoachNum(item));
         setCoachNums(prepData);
         setActiveCoachId(0);
-        console.log(coachData[0]);
         setActiveCoach(coachData[0]);
     }, [coachData]);
 
     useEffect(() => {
+        console.log('coach', coachData[activeCoachId]);
         setActiveCoach(coachData[activeCoachId]);
-        // dispatch(setSelectCoach(coachData[activeCoachId]));
     }, [activeCoachId]);
 
     useEffect(() => {
-        console.log(activeCoach);
-        dispatch(setSelectCoach(activeCoach));
+        dispatch(setSelectCoach(activeCoach));   
     }, [activeCoach]);
+
+    // useEffect(() => {
+    //     let counterTopPlaces = 0;
+    //     let counterBottomPlaces = 0;
+
+    //     if (activeCoach.coach['class_type'] === 'second' || activeCoach.coach['class_type'] === 'third') {
+    //         activeCoach.coach.seats.map(({ index, available }) => {
+    //             if (!available) return;
+    //             if (index % 2 === 1) counterBottomPlaces += 1;
+    //             if (index % 2 === 0) counterTopPlaces += 1;
+    //         }) 
+    //     }
+    //     setCountTop(counterTopPlaces);
+    //     setCountBottom(counterBottomPlaces);
+    // }, [activeCoach]);
 
     function getCoachNum (data) {
         const coachName = data.coach.name;
@@ -48,13 +61,10 @@ const CoachInfo = (props) => {
         return Number(coachName.match( numberPattern ));
     };
     function removeOption (name) {
-        console.log(name);
         const updateList = selectedOptions.filter(item => item !== name);
-        console.log(updateList);
         setSelectedOptions(updateList);
     }
     function addOption (name) {
-        
         setSelectedOptions(prev => [...prev, name]);
     }
 
@@ -62,8 +72,6 @@ const CoachInfo = (props) => {
     const included = cn(styles['icon-wrapper'], styles['option_included']); //опции включены и от них нельзы отказаться,опции не активны
     const selected = cn(styles['icon-wrapper'], styles['option_selected']); //опции добавлены пользователем к стоимости билеты
 
-
-    // console.log('selected', selectedOptions);
     return (
         <div>
             <div className={styles[coachNums.length > 1 ? 'numbers_active' : 'numbers_hidden']}>
@@ -106,20 +114,12 @@ const CoachInfo = (props) => {
                             <div className={styles['seats-list']}>
                                 <div className={styles['section__item']}>
                                     <p className={styles['seats__name']}>Верхние</p>
-                                    <p className={styles['seats__count']}>0</p>
+                                    <p className={styles['seats__count']}>{ (activeCoach.seats.filter(({index, available}) => index % 2 === 0 && available)).length }</p>
                                 </div>
                                 <div className={styles['section__item']}>
                                     <p className={styles['seats__name']}>Нижние</p>
-                                    <p className={styles['seats__count']}>0</p>
+                                    <p className={styles['seats__count']}>{ (activeCoach.seats.filter(({index, available}) => index % 2 === 1 && available)).length }</p>
                                 </div>
-
-                                { activeCoach.coach['class_type'] === 'third' ? (
-                                    <div className={styles['section__item']}>
-                                        <p className={styles['seats__name']}>Боковые</p>
-                                        <p className={styles['seats__count']}>0</p>
-                                    </div>
-                                    ) : 
-                                null }
                             </div>
                         ) }
                     </div>
@@ -143,12 +143,12 @@ const CoachInfo = (props) => {
                                     <p className={styles['icon-rub']}><BiRuble /></p>
                                 </div>
 
-                                { activeCoach.coach['class_type'] === 'third' ? (
+                                {/* { activeCoach.coach['class_type'] === 'third' ? (
                                     <div className={styles['section__item']}>
                                         <p className={styles['price']}>{ activeCoach.coach['side_price'] }</p>
                                         <p className={styles['icon-rub']}><BiRuble /></p>
                                     </div>   
-                                ) : null }
+                                ) : null } */}
                             </div>
                         )}
                     </div>

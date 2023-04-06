@@ -19,9 +19,10 @@ const SchemeSecondClass = (props) => {
             }
             
             p[p.length-1].push(c);
+            
             return p;
           }, [[]]);
-        console.log(res);  
+        
         setCoupe(res);
     }, [data]);
 
