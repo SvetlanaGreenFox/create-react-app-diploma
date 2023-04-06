@@ -8,6 +8,7 @@ const ThirdClass = () => {
     const coachs = useSelector(state => state.sortSeats.third);
     const selectCoach = useSelector(state => state.selectCoach);
 
+    // console.log(selectCoach.activeCoach.seats);
     return (
         <div>
             <CoachInfo coachData={ coachs }/>

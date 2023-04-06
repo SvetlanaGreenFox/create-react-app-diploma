@@ -5,16 +5,21 @@ import cn from 'classnames';
 import uniqid from 'uniqid';
 
 const SchemeThirdClass = (props) => {
-
+    //нечетные нижние
+    //четные верхние
+    
     const { data } = props;
-
-    const coupeSize = 4;
-
+    console.log(data);
     const [activePlaces, setActivePlaces] = useState([]);
     const [coupe, setCoupe ] = useState([]);
 
     useEffect(() => {
-        const res = data.reduce((p,c)=>{
+        const coupeSize = 4;
+        const sideCoupeSize = 2;
+        const coupeCount = data.length / (coupeSize + sideCoupeSize);
+        const mainPlaces = data.slice(0, coupeSize * coupeCount);
+        const sidePlaces = data.slice(coupeSize * coupeCount);
+        const resMainPlaces = mainPlaces.reduce((p,c)=>{
             if(p[p.length-1].length === coupeSize){
               p.push([]);
             }
@@ -22,6 +27,24 @@ const SchemeThirdClass = (props) => {
             p[p.length-1].push(c);
             return p;
           }, [[]]);
+
+        const resSidePlaces = sidePlaces.reduce((p,c)=>{
+            if(p[p.length-1].length === 2){
+              p.push([]);
+            }
+            
+            p[p.length-1].push(c);
+            return p;
+        }, [[]]);
+
+        const res = resMainPlaces.map((item, index) => {
+            return (
+                {
+                    main: item,
+                    side: resSidePlaces[index]
+                }
+            );
+        });
 
         setCoupe(res);
     }, [data]);
@@ -37,16 +60,16 @@ const SchemeThirdClass = (props) => {
 
     return (
             <div className={styles['scheme']}>
-                {coupe ? coupe.map((item) => {
+                {coupe ? coupe.map(({main, side}) => {
                     
                     return (
                         <div key={uniqid()} className={styles['coupe']}>
                             <div className={styles['top-block']}>
-                                {item.map( ({ index, available }) => {
+                                {main.map( ({ index, available }) => {
                                     return (
                                         <div 
                                         key={uniqid()}
-                                        className={cn(styles.place, !available ? styles.busy : (
+                                        className={cn(styles['place-main'], !available ? styles.busy : (
                                             activePlaces.includes(index) ? cn(styles.active, styles.free) : styles.free 
                                         ))}
                                         onClick={() => activePlaces.includes(index) ? removePlace(index) :  addPlace(index)}
@@ -61,7 +84,19 @@ const SchemeThirdClass = (props) => {
                                 <p className={styles['text-hidden']}>---</p>
                             </div>
                             <div className={styles['bottom-block']}>
-                                <p className={styles['text-hidden']}>---</p>
+                                {side.map(({ index, available }) => {
+                                    return (
+                                        <div 
+                                        key={uniqid()}
+                                        className={cn(styles['place-side'], !available ? styles.busy : (
+                                            activePlaces.includes(index) ? cn(styles.active, styles.free) : styles.free 
+                                        ))}
+                                        onClick={() => activePlaces.includes(index) ? removePlace(index) :  addPlace(index)}
+                                        >
+                                            {index}
+                                        </div>  
+                                    )
+                                })}
                             </div>
                         </div>
                     )

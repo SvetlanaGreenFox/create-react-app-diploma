@@ -27,6 +27,7 @@ const CoachInfo = (props) => {
         const prepData = coachData.map((item) => getCoachNum(item));
         setCoachNums(prepData);
         setActiveCoachId(0);
+        console.log(coachData[0]);
         setActiveCoach(coachData[0]);
     }, [coachData]);
 
@@ -36,6 +37,7 @@ const CoachInfo = (props) => {
     }, [activeCoachId]);
 
     useEffect(() => {
+        console.log(activeCoach);
         dispatch(setSelectCoach(activeCoach));
     }, [activeCoach]);
 
