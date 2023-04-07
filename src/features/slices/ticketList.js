@@ -17,10 +17,18 @@ const ticketListSlice = createSlice({
             state.toCityId = toCityId;
             state.start = start;
             state.end = end;
+        },
+        setNewStartDate (state, action) {
+            console.log(action.payload);
+            state.start = action.payload;
+        },
+        setNewEndDate (state, action) {
+            console.log(action.payload);
+            state.end = action.payload;
         }
     }
 });
 
-export const { setTickets } = ticketListSlice.actions;
+export const { setTickets, setNewStartDate, setNewEndDate } = ticketListSlice.actions;
 
 export default ticketListSlice.reducer;

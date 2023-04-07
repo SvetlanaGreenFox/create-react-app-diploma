@@ -1,9 +1,15 @@
 import styles from './SortMenu.module.scss';
 
+import DateHandler from './DateHandler';
+import OptionsHandler from './OptionsHandler';
+import PriceHandler from './PriceHandler';
+
 const SortMenu = () => {
     return (
         <section className={styles['sort-menu']}>
-            Sort Menu
+            <DateHandler />
+            <OptionsHandler />
+            <PriceHandler />
         </section>
     )
 };

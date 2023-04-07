@@ -9,15 +9,24 @@ import uniqid from 'uniqid';
 import TrainCard from '../TrainCard';
 
 const TicketList = () => {
-    const ticketList = useSelector(state => state.ticketList);
-    const { fromCityId, toCityId, start, end } = ticketList;
+    const ticketData= useSelector(state => state.ticketList);
+    console.log('TicketList', ticketData);
+    const { fromCityId, toCityId, start, end } = ticketData;
     const [tickets, setTickets] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const dispatch = useDispatch();
-    
+   
     useEffect(() => {
         setIsLoading(true);
-        axios.get(`https://netology-trainbooking.netoservices.ru/routes?from_city_id=${fromCityId}&to_city_id=${toCityId}`)
+
+        axios.get('https://netology-trainbooking.netoservices.ru/routes', {
+            params: { 
+                'from_city_id': fromCityId, 
+                'to_city_id': toCityId,
+                'date_start': start ? start : {},
+                'date_start_arrival': end ? end : {}
+            }
+        })
              .then(res => {
                 setTickets(res.data);
                 setIsLoading(false);
@@ -27,6 +36,7 @@ const TicketList = () => {
     function setTrainId (id) {
         dispatch(setSelectTrain(id));
     }
+    console.log(tickets);
 
     return (
         <section className={styles['ticketList-wrapper']}>

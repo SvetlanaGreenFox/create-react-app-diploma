@@ -65,7 +65,7 @@ const SchemeThirdClass = (props) => {
                                     return (
                                         <div 
                                         key={uniqid()}
-                                        className={cn(styles['place-main'], !available ? styles.busy : (
+                                        className={cn(styles['place'], styles['place-main'], !available ? styles.busy : (
                                             activePlaces.includes(index) ? cn(styles.active, styles.free) : styles.free 
                                         ))}
                                         onClick={() => activePlaces.includes(index) ? removePlace(index) :  addPlace(index)}
@@ -84,7 +84,7 @@ const SchemeThirdClass = (props) => {
                                     return (
                                         <div 
                                         key={uniqid()}
-                                        className={cn(styles['place-side'], !available ? styles.busy : (
+                                        className={cn(styles['place'], styles['place-side'], !available ? styles.busy : (
                                             activePlaces.includes(index) ? cn(styles.active, styles.free) : styles.free 
                                         ))}
                                         onClick={() => activePlaces.includes(index) ? removePlace(index) :  addPlace(index)}

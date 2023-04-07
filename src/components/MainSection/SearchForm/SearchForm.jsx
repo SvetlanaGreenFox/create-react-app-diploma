@@ -1,15 +1,16 @@
 import styles from "./SearchForm.module.scss";
+
 import { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { NavLink } from "react-router-dom";
+
 import axios from "axios";
-import { useDispatch } from "react-redux";
-import { setTickets } from '../../../features/slices/ticketList';
-import swapIcon from '../../../assets/swap.png';
 
 import CitiesList from "./CitiesList";
-
+import { setTickets } from '../../../features/slices/ticketList';
+import swapIcon from '../../../assets/swap.png';
 
 const SearchForm = () => {
     const [ departure, setDeparture ] = useState('');

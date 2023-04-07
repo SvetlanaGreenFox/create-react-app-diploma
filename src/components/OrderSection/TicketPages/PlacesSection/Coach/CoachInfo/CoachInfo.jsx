@@ -15,12 +15,12 @@ import { RiCupFill } from 'react-icons/ri';
 
 const CoachInfo = (props) => {
     const { coachData } = props;
+    
     const [activeCoachId, setActiveCoachId] = useState(null);
     const [activeCoach, setActiveCoach] = useState();
     const [coachNums, setCoachNums] = useState([]);
     const [selectedOptions, setSelectedOptions] = useState([]);
-    const [countTop, setCountTop] = useState(null);
-    const [countBottom, setCountBottom] = useState(null);
+
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -38,21 +38,6 @@ const CoachInfo = (props) => {
     useEffect(() => {
         dispatch(setSelectCoach(activeCoach));   
     }, [activeCoach]);
-
-    // useEffect(() => {
-    //     let counterTopPlaces = 0;
-    //     let counterBottomPlaces = 0;
-
-    //     if (activeCoach.coach['class_type'] === 'second' || activeCoach.coach['class_type'] === 'third') {
-    //         activeCoach.coach.seats.map(({ index, available }) => {
-    //             if (!available) return;
-    //             if (index % 2 === 1) counterBottomPlaces += 1;
-    //             if (index % 2 === 0) counterTopPlaces += 1;
-    //         }) 
-    //     }
-    //     setCountTop(counterTopPlaces);
-    //     setCountBottom(counterBottomPlaces);
-    // }, [activeCoach]);
 
     function getCoachNum (data) {
         const coachName = data.coach.name;
@@ -166,15 +151,14 @@ const CoachInfo = (props) => {
                                     <Snow className={styles['option__icon']} />
                                 </div>
                             ) : null }
-                            { activeCoach.coach['have_wifi'] ? (
-                                <div onClick={ () => selectedOptions.includes('have_wifi') ? 
+                            
+                            <div onClick={ () => selectedOptions.includes('have_wifi') ? 
                                 removeOption('have_wifi') : 
                                 addOption('have_wifi') } 
                                 className={ selectedOptions.includes('have_wifi') ? selected : noIncluded}>
                                     <AiOutlineWifi className={styles['option__icon']} />
-                                </div>
-                            ) : null }
-                            
+                            </div>
+                           
                             <div onClick={ () => activeCoach.coach['is_linens_included'] ? null : 
                                 selectedOptions.includes('is_linens_included') ? 
                                 removeOption('is_linens_included') : 
