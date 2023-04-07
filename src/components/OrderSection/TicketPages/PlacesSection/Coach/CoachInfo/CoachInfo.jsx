@@ -2,7 +2,7 @@ import styles from './CoachInfo.module.scss';
 // import Scheme from '../SchemeCoach';
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { setSelectCoach }  from '../../../../../../features/slices/selectCoach';
+import { setSelectCoach }  from '../../../../../../redux/slices/selectCoach';
 
 import cn from 'classnames';
 // import uniqid from 'uniqid';
@@ -15,7 +15,7 @@ import { RiCupFill } from 'react-icons/ri';
 
 const CoachInfo = (props) => {
     const { coachData } = props;
-    
+
     const [activeCoachId, setActiveCoachId] = useState(null);
     const [activeCoach, setActiveCoach] = useState();
     const [coachNums, setCoachNums] = useState([]);

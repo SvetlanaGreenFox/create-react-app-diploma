@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 
-import { setNewStartDate, setNewEndDate } from '../../../../../../features/slices/ticketList';
+import { setNewStartDate, setNewEndDate } from '../../../../../../redux/slices/ticketList';
 
 
 import DatePicker from "react-datepicker";
@@ -16,8 +16,12 @@ const DateHandler = () => {
 
     console.log('DateHandler', start, end);
     const [startDate, setStartDate] = useState(null);
-    const [endDate, setEndDate] = useState(null);
+    // const [endDate, setEndDate] = useState(null);
 
+    //если дата отъезда уже есть - ее можно сразу внести в поле, чтобы пользователь понимал от какой даты отталкиваться
+    //если в дату оправления введено значение, сравнить его с датой end
+    //если введенное значение раньше чем end то можно использовать end для фильтрации и нужно бы эту дату передать в поле поиска чтобы было очевидно что она измелась
+    //если введенное значение позже, то end придется обнулить, чтобы фильтрация присходила корректно
     const dispatch = useDispatch();
 
     function prepareDate (date) {
@@ -31,10 +35,7 @@ const DateHandler = () => {
         if (startDate) {
             dispatch(setNewStartDate(prepareDate(startDate)));
         }
-        if (endDate) {
-            dispatch(setNewEndDate(prepareDate(endDate)));
-        }
-    }, [startDate, endDate]);
+    }, [startDate]);
 
     return (
         <div>
@@ -44,10 +45,10 @@ const DateHandler = () => {
                     selected={startDate}
                     selectsStart
                     startDate={startDate}
-                    endDate={endDate} 
+                    // endDate={endDate} 
                     onChange={(date) => setStartDate(date)} />
             </div>
-            <div className={styles['picker-wrapper']}>
+            {/* <div className={styles['picker-wrapper']}>
                 <DatePicker
                     className={styles.picker}
                     selected={endDate}
@@ -56,7 +57,7 @@ const DateHandler = () => {
                     endDate={endDate}
                     minDate={startDate}
                     onChange={(date) => setEndDate(date)} />
-            </div> 
+            </div>  */}
         </div>
     )
 };

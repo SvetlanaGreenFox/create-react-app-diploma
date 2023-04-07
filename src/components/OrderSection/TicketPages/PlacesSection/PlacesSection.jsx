@@ -4,7 +4,7 @@ import {Routes, Route} from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 import axios from 'axios';
-import { setTotalSeats } from '../../../../features/slices/totalSeats'; 
+import { setTotalSeats } from '../../../../redux/slices/totalSeats'; 
 import AboutTrain from './AboutTrain';
 import FirstClass from './Coach/FirstClass';
 import SecondClass from './Coach/SecondClass';

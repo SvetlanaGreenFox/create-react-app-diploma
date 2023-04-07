@@ -9,7 +9,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 
 import CitiesList from "./CitiesList";
-import { setTickets } from '../../../features/slices/ticketList';
+import { setTickets } from '../../../redux/slices/ticketList';
 import swapIcon from '../../../assets/swap.png';
 
 const SearchForm = () => {

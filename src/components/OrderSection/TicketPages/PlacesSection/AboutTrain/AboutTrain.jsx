@@ -2,7 +2,7 @@ import styles from './AboutTrain.module.scss';
 import { NavLink, Outlet } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setSortSeats } from '../../../../../features/slices/sortSeats';
+import { setSortSeats } from '../../../../../redux/slices/sortSeats';
 
 import cn from 'classnames';
 
