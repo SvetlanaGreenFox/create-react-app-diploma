@@ -9,35 +9,41 @@ import uniqid from 'uniqid';
 import TrainCard from '../TrainCard';
 
 const TicketList = () => {
-    const ticketData= useSelector(state => state.ticketList);
-    console.log('Список поездов', ticketData);
-    const { fromCityId, toCityId, start, end } = ticketData;
+    const { cityFrom, cityTo }= useSelector(state => state.selectedCities);
+    const { start, end } = useSelector(state => state.travelDate);
+
     const [tickets, setTickets] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const dispatch = useDispatch();
-   
+
+    function prepareDate (date) {
+        const month = (date.getMonth() + 1).toString();
+        const prepareMonth = month.length === 1 ? `0${month}` : month; 
+        
+        return `${date.getFullYear()}-${prepareMonth}-${date.getDate()}`;
+    }
+
     useEffect(() => {
-        console.log('ticketUSE');
         setIsLoading(true);
 
         axios.get('https://netology-trainbooking.netoservices.ru/routes', {
             params: { 
-                'from_city_id': fromCityId, 
-                'to_city_id': toCityId,
-                'date_start': start ? start : {},
-                'date_start_arrival': end ? end : {}
+                'from_city_id': cityFrom.id, 
+                'to_city_id': cityTo.id,
+                'date_start': start ? prepareDate(start) : {},
+                'date_start_arrival': end ? prepareDate(end) : {}
             }
         })
              .then(res => {
                 setTickets(res.data);
                 setIsLoading(false);
              })
-    }, [fromCityId, toCityId, start, end]); 
+    }, [cityFrom, cityTo, start, end]); 
 
     function setTrainId (id) {
         dispatch(setSelectTrain(id));
     }
-    console.log(tickets);
+
     return (
         <section className={styles['ticketList-wrapper']}>
             {isLoading ? <p>Идет закгрузка</p> : 

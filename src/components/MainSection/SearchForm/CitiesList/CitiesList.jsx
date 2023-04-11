@@ -8,7 +8,7 @@ const CitiesList = ({ cities, selectCity }) => {
                     return (<li 
                         key={city['_id']} 
                         className={styles['citiesList__item']} 
-                        onClick={() => selectCity(city['_id'])}>
+                        onClick={() => selectCity(city)}>
                     { city.name }
                     </li>)}
                 )

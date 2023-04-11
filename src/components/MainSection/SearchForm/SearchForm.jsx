@@ -2,62 +2,66 @@ import styles from "./SearchForm.module.scss";
 
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
+import CitiesList from "./CitiesList";
+import { setCityFrom, setCityTo } from '../../../redux/slices/selectCities';
+import { setStartDate, setEndDate } from '../../../redux/slices/selectDate';
+
+import swapIcon from '../../../assets/swap.png';
 import axios from "axios";
 
-import CitiesList from "./CitiesList";
-import { setTickets } from '../../../redux/slices/ticketList';
-import swapIcon from '../../../assets/swap.png';
 
 const SearchForm = () => {
+    const { start: startDate, end: endDate } = useSelector(state => state.travelDate);
+    const { cityFrom, cityTo } = useSelector(state => state.selectedCities);
+    console.log('города', cityFrom.name, cityTo.name);
     const [ departure, setDeparture ] = useState('');
     const [ destination, setDestination ] = useState('');
     const [ cities, setCities ] = useState([]);
     const [direction, setDirection] = useState({
-        fromCityId: '',
-        toCityId: ''
+        cityFrom: {
+            id: null,
+            name: ''
+        },
+        cityTo: {
+            id: null,
+            name: ''
+        }
     })
     const [input, setInput] = useState({
         departure: false,
         destination: false,
     })
-    const [startDate, setStartDate] = useState(null);
-    const [endDate, setEndDate] = useState(null);
+    const [start, setStart] = useState(null);
+    const [end, setEnd] = useState(null);
 
     const dispatch = useDispatch();
-
-    function prepareDate (date) {
-        const month = (date.getMonth() + 1).toString();
-        const prepareMonth = month.length === 1 ? `0${month}` : month; 
-        
-        return `${date.getFullYear()}-${prepareMonth}-${date.getDate()}`;
-    } 
 
     function sendData (e) {
         e.preventDefault();
 
-        const prepareStartDate = startDate ? prepareDate(startDate) : null;
-        const prepareEndDate = endDate ? prepareDate(endDate) : null;
+        if (!cityFrom.name || departure !== cityFrom.name) dispatch(setCityFrom(direction.cityFrom));
+        if (!cityTo.name || destination !== cityTo.name) dispatch(setCityTo(direction.cityTo));
         
-        dispatch(setTickets({...direction, start: prepareStartDate, end: prepareEndDate}));
+        dispatch(setStartDate(start));
+        dispatch(setEndDate(end));
     }
     
-    function targetCity (id) {
-
-        const targetElem = cities.find(item => item['_id'] === id);
+    function targetCity (obj) {
+        const targetElem = cities.find(item => item['_id'] === obj['_id']);
         const city = targetElem.name;
 
         if (input.departure) {
             setDeparture(city);
-            setDirection(prev => ({ ...prev, fromCityId: id}));
+            setDirection(prev => ({ ...prev, cityFrom: {id: obj['_id'], name: city}}));
             setInput(prev => ({...prev, departure: false}));
         }
         if (input.destination) {
             setDestination(city);
-            setDirection(prev => ({ ...prev, toCityId: id}));
+            setDirection(prev => ({ ...prev, cityTo: {id: obj['_id'], name: city}}));
             setInput(prev => ({...prev, destination: false}));
         }
     }
@@ -75,30 +79,16 @@ const SearchForm = () => {
     } 
 
     function removeInput1 (e) {
-        // console.log('BLURtarget', e.target)
-        // if (e.currentTarget === e.target) {
-        //     // console.log('unfocused self');
-        //     // console.log('Catch');
-        //     console.log('1');
-        //   } else {
-        //     // console.log('unfocused child', e.target);
-        //     console.log('2');
-        //   }
           if (!e.currentTarget.contains(e.relatedTarget)) {
-            // Not triggered when swapping focus between children
             setInput(prev => ({...prev, departure: false}));
           }
     }
 
     function removeInput2 (e) {
-        // console.log('BLURtarget', e.target)
         // if (e.currentTarget === e.target) {
         //     // console.log('unfocused self');
-        //     // console.log('Catch');
-        //     console.log('1');
         //   } else {
         //     // console.log('unfocused child', e.target);
-        //     console.log('2');
         //   }
           if (!e.currentTarget.contains(e.relatedTarget)) {
             // Not triggered when swapping focus between children
@@ -115,7 +105,6 @@ const SearchForm = () => {
     }, [input])
 
     useEffect(() => {
-        console.log('2');
         if (departure.length > 0) {
             axios
             .get(`https://netology-trainbooking.netoservices.ru/routes/cities?name=${departure}`)
@@ -137,8 +126,14 @@ const SearchForm = () => {
         return;
     }, [destination]);
 
+    useEffect(() => {
+        setDeparture(cityFrom.name);
+        setDestination(cityTo.name);
+        setStart(startDate);
+        setEnd(endDate);
+    }, [startDate, endDate]);
+
     function swapCities () {
-        
         setDeparture(destination);
         setDestination(departure);
     }
@@ -168,22 +163,22 @@ const SearchForm = () => {
             <div className={styles['searchForm__inputs-wrapper']}>
                 <div className={styles['picker-wrapper']}><DatePicker 
                         className={styles.picker}
-                        selected={startDate}
+                        selected={start}
                         selectsStart
-                        startDate={startDate}
-                        endDate={endDate} 
-                        onChange={(date) => setStartDate(date)}
+                        startDate={start}
+                        endDate={end} 
+                        onChange={(date) => setStart(date)}
                     /></div>
                     
                     <div className={styles['picker-wrapper']}>
                     <DatePicker
                             className={styles.picker}
-                            selected={endDate}
+                            selected={end}
                             selectsEnd
-                            startDate={startDate}
-                            endDate={endDate}
-                            minDate={startDate}
-                            onChange={(date) => setEndDate(date)}
+                            startDate={start}
+                            endDate={end}
+                            minDate={start}
+                            onChange={(date) => setEnd(date)}
                         />
                     </div>
                 </div>

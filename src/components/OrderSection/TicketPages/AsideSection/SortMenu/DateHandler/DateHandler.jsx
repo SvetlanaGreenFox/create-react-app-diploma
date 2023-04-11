@@ -1,63 +1,43 @@
 import styles from './DateHandler.module.scss';
 
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-
-import { setNewStartDate, setNewEndDate } from '../../../../../../redux/slices/ticketList';
-
+import { setStartDate } from '../../../../../../redux/slices/selectDate';
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 const DateHandler = () => {
-    const ticketData= useSelector(state => state.ticketList);
-    const { start, end } = ticketData;
+    const { start: startDate} = useSelector(state => state.travelDate);
 
-    console.log('DateHandler', start, end);
-    const [startDate, setStartDate] = useState(null);
-    // const [endDate, setEndDate] = useState(null);
+    const [end, setEnd] = useState(null);
 
-    //если дата отъезда уже есть - ее можно сразу внести в поле, чтобы пользователь понимал от какой даты отталкиваться
-    //если в дату оправления введено значение, сравнить его с датой end
-    //если введенное значение раньше чем end то можно использовать end для фильтрации и нужно бы эту дату передать в поле поиска чтобы было очевидно что она измелась
-    //если введенное значение позже, то end придется обнулить, чтобы фильтрация присходила корректно
     const dispatch = useDispatch();
 
-    function prepareDate (date) {
-        const month = (date.getMonth() + 1).toString();
-        const prepareMonth = month.length === 1 ? `0${month}` : month; 
-        
-        return `${date.getFullYear()}-${prepareMonth}-${date.getDate()}`;
-    }
-
-    useEffect(() => {
-        if (startDate) {
-            dispatch(setNewStartDate(prepareDate(startDate)));
-        }
-    }, [startDate]);
-
     return (
-        <div>
+        <div className={styles['wrapper']}>
             <div className={styles['picker-wrapper']}>
+            <p className={styles['date-handler__title']}>Дата поездки</p>
                 <DatePicker 
                     className={styles.picker}
                     selected={startDate}
                     selectsStart
                     startDate={startDate}
-                    // endDate={endDate} 
-                    onChange={(date) => setStartDate(date)} />
+                    endDate={end} 
+                    onChange={(date) => dispatch(setStartDate(date))} />
             </div>
-            {/* <div className={styles['picker-wrapper']}>
+            <div className={styles['picker-wrapper']}>
+            <p className={styles['date-handler__title']}>Дата возвращения</p>
                 <DatePicker
                     className={styles.picker}
-                    selected={endDate}
+                    selected={end}
                     selectsEnd
                     startDate={startDate}
-                    endDate={endDate}
+                    endDate={end}
                     minDate={startDate}
-                    onChange={(date) => setEndDate(date)} />
-            </div>  */}
+                    onChange={(date) => setEnd(date)} />
+            </div> 
         </div>
     )
 };

@@ -92,3 +92,10 @@
     max-width: 1320px;
     margin: 0 auto;
 }
+
+@mixin inputStyles () {
+    padding: 20px 18px;
+    font-size: 18px;
+    text-transform: capitalize;
+    color:#292929;
+}

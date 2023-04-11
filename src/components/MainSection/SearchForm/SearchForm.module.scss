@@ -52,10 +52,11 @@
     width: 100%;
     height: 60px;
 
-    padding: 20px 18px;
-    font-size: 18px;
-    text-transform: capitalize;
-    color:#292929;
+    @include inputStyles();
+    // padding: 20px 18px;
+    // font-size: 18px;
+    // text-transform: capitalize;
+    // color:#292929;
 }
 .searchForm__input:focus {
     border: none;
@@ -103,6 +104,8 @@
 .picker {
     width: 100%;
     height: 60px;
+
+    @include inputStyles();
 }
 
 // .picker input {
