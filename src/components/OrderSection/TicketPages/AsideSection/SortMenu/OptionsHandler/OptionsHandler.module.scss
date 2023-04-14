@@ -1,0 +1,59 @@
+.options-wrapper {
+    width: 360px;
+    padding: 29px 34px 26px 32px;
+    border-bottom: solid 1px #E5E5E5;
+}
+
+.option {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.option__item:nth-child(n + 1) {
+    margin-top: 35px;
+}
+
+.icon {
+    width: 20%;
+    color: #E5E5E5;
+    font-size: 23px;
+}
+
+.name {
+    width: 40%;
+    color: #FFFFFF;
+    font-size: 18px;
+    text-transform: capitalize;
+}
+
+.switch-btn {
+    position: relative;
+    display: inline-block;
+    width: 30%;
+    height: 19px;
+
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    cursor: pointer;
+    transition-duration: 700ms;
+    z-index: 0;
+}
+
+.switch-btn:after {
+    content: '';
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    border-radius: 18px;
+    z-index: 1;
+    background: #FFA800;
+    top: -4px; 
+}
+
+.switch-btn_active {
+    background-color: #FCDC9D;
+}
+.switch-btn_active:after {
+    right: -1px;
+}
