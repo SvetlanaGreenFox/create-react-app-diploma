@@ -1,9 +1,19 @@
 .container {
-    height: 100px;
+    // height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    padding-top: 5px;
+    padding-bottom: 60px;
   }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  color: #FFFFFF;
+}
   
   .slider {
     position: relative;
@@ -13,7 +23,8 @@
   .slider__track,
   .slider__range,
   .slider__left-value,
-  .slider__right-value {
+  .slider__right-value,
+  .slider__max-value {
     position: absolute;
   }
   
@@ -35,7 +46,8 @@
   }
   
   .slider__left-value,
-  .slider__right-value {
+  .slider__right-value,
+  .slider__max-value {
     color: #E5E5E5;
     font-size: 16px;
     margin-top: 30px;
@@ -45,7 +57,7 @@
     left: 0;
   }
   
-  .slider__right-value {
+  .slider__max-value {
     right: 0;
   }
   
