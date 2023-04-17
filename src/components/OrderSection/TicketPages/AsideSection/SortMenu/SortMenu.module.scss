@@ -1,4 +1,23 @@
+@import '../../../../../styles/colors';
+
 .sort-menu {
     background-color: #3E3C41;
     width: 360px;
+}
+
+.time-handler__header {
+    display: flex;
+}
+
+.time-handler__icon {
+    color: none;
+    background-color: $main-orange;
+}
+
+.open {
+    display: block;
+}
+
+.close {
+    display: none;
 }

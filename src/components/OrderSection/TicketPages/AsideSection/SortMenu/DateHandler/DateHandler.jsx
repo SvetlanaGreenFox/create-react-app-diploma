@@ -16,7 +16,7 @@ const DateHandler = () => {
     const dispatch = useDispatch();
 
     return (
-        <div className={styles['wrapper']}>
+        <div className={styles['date-wrapper']}>
             <div className={styles['picker-wrapper']}>
             <p className={styles['date-handler__title']}>Дата поездки</p>
                 <DatePicker 
