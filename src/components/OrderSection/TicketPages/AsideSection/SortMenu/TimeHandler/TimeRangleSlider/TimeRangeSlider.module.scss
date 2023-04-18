@@ -1,32 +1,24 @@
 .container {
-    // height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding-top: 5px;
-    padding-bottom: 60px;
-  }
-
-.header {
   display: flex;
-  justify-content: space-between;
-  font-size: 18px;
-  color: #FFFFFF;
+  align-items: center;
+  justify-content: center;
+
+  padding-top: 5px;
+  padding-bottom: 60px;
 }
   
-  .slider {
-    position: relative;
-    width: 100%;
-  }
+.slider {
+  position: relative;
+  width: 100%;
+}
   
-  .slider__track,
-  .slider__range,
-  .slider__left-value,
-  .slider__right-value,
-  .slider__max-value {
-    position: absolute;
-  }
+.slider__track,
+.slider__range,
+.slider__left-value,
+.slider__right-value,
+.slider__max-value {
+  position: absolute;
+}
   
   .slider__track,
   .slider__range {
@@ -61,7 +53,6 @@
     right: 0;
   }
   
-  /* Removing the default appearance */
   .thumb,
   .thumb::-webkit-slider-thumb {
     -webkit-appearance: none;
@@ -83,10 +74,6 @@
   
   .thumb--zindex-4 {
     z-index: 4;
-  }
-  
-  .thumb--zindex-5 {
-    z-index: 5;
   }
   
   /* For Chrome browsers */

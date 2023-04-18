@@ -63,7 +63,7 @@ const SortMenu = () => {
                     </div>
                     <div className={styles['time-handler__title']}>Туда</div>
                     <div className={styles['btn-wrapper']} onClick={() => setTimeHandlersState(prev => ({...prev, to: !prev.to}))}>
-                        <button type='button' className={styles['time-handler__btn']}>+</button>
+                        <button type='button' className={styles['time-handler__btn']}>{timeHandlersState.to ? '-' : '+'}</button>
                     </div>
                 </div>
                 <div className={cn(styles['time-handler__slider'], styles[timeHandlersState.to ? 'open' : 'close'])}>
@@ -77,7 +77,7 @@ const SortMenu = () => {
                     </div>
                     <div className={styles['time-handler__title']}>Обратно</div>
                     <div className={styles['btn-wrapper']} onClick={() => setTimeHandlersState(prev => ({...prev, from: !prev.from}))}>
-                        <button type='button' className={styles['time-handler__btn']}>+</button>
+                        <button type='button' className={styles['time-handler__btn']}>{timeHandlersState.from ? '-' : '+'}</button>
                     </div>
                 </div>
                 <div className={cn(styles['time-handler__slider'], styles[timeHandlersState.from ? 'open' : 'close'])}>

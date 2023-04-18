@@ -1,3 +1,18 @@
 .wrapper {
     padding-top: 20px;
 }
+
+.header {
+    display: flex;
+    font-size: 18px;
+    color: #FFFFFF;
+    padding-bottom: 20px;
+}
+
+.time-wrapper__item:nth-child(1) {
+    margin-bottom: 46px;
+}
+
+.header_right {
+   justify-content: end;
+}

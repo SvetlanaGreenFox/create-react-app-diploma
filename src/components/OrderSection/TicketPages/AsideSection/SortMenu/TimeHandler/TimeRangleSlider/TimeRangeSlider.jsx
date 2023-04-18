@@ -17,7 +17,6 @@ const TimeRangeSlider = ({ min, max }) => {
 
     const range = useRef(null);
     
-    // Convert to percentage
     const getPercent = useCallback(
         (value) => Math.round(((value - min) / (max - min)) * 100), [min, max]
     );
@@ -49,7 +48,6 @@ const TimeRangeSlider = ({ min, max }) => {
     }
     }, [minVal, getPercent]);
 
-    // Set width of the range to decrease from the right side
     useEffect(() => {
         
         if (minValRef.current) {
@@ -63,7 +61,6 @@ const TimeRangeSlider = ({ min, max }) => {
             const prepareTime = `${minuteToTime(maxVal).hours}:${minuteToTime(maxVal).minutes}`;
             setMaxTime(prepareTime);
             
-            // if (maxPercent - minPercent > 20 && maxPercent - minPercent < 75) valueMaxRef;
             if (maxPercent - minPercent >= 75) valueMaxRef = `70%`;
             if (maxPercent - minPercent < 20) valueMaxRef = `15%`;
                 maxRef.current.style.left = valueMaxRef;
@@ -71,16 +68,12 @@ const TimeRangeSlider = ({ min, max }) => {
         }
     }, [maxVal, getPercent]);
 
-    // Get min and max values when their state changes
     useEffect(() => {
-        // setMaxVal(min * 2);
+        setMaxVal(660);
     }, [min, max]);
 
     return (
         <div >
-            <div className={styles.header}>
-                <p>Время отбытия</p>
-            </div>
             <div className={styles.container}>
                 <input
                     type="range"
