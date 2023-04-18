@@ -4,8 +4,11 @@
 .header-section {
     @include headerStyles();
 
+    padding-left: 0;
+    padding-right: 0;
     height: 947px;
     background: url(../../../assets/main-back.png) no-repeat center center;
+    background-size: cover;
     background-color: rgba(255, 168, 0, 1);
     border-bottom: solid 4px $main-orange;
 }
