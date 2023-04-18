@@ -5,13 +5,55 @@
     width: 360px;
 }
 
+.time-handler {
+    width: 360px;
+    padding: 29px 34px 26px 32px;
+    border-bottom: solid 1px #E5E5E5; 
+}
+
 .time-handler__header {
     display: flex;
+    align-items: center;
 }
 
 .time-handler__icon {
+    max-width: 30%;
+    width: 32px;
+    height: 26px;
+    border-radius: 5px;
+    font-size: 20px;
+    text-align: center;
+    line-height: 31px;
     color: none;
     background-color: $main-orange;
+    margin-right: 12px;
+}
+
+.time-handler__title {
+    width: 30%;
+    font-size: 30px;
+    font-weight: 700;
+    color: #FFFFFF;
+}
+
+.btn-wrapper {
+    width: 60%;
+    display: flex;
+    justify-content: end;
+    
+}
+
+.time-handler__btn {
+    width: 20px;
+    height: 20px;
+    color: #FFFFFF;
+    font-size: 22px;
+    padding: 0px 0px 2px 0px;
+    line-height:0;
+    background: none;
+    border: solid 2px #FFFFFF;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .open {
