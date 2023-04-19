@@ -1,5 +1,7 @@
 import styles from './OptionsHandler.module.scss';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { setOptions } from '../../../../../../redux/slices/selectOptions';
 
 import uniqid from 'uniqid';
 import cn from 'classnames';
@@ -14,45 +16,47 @@ import { FaRocket } from 'react-icons/fa';
 const OptionsHandler = () => {
     const options = [
         {
-            option: 'second',
+            option: 'have_second_class',
             name: 'купе',
             icon: <TrainLightrailFrontFill className={styles.test}/>
         },
         {
-            option: 'third',
+            option: 'have_third_class',
             name: 'плацкарт',
             icon: <TrainFreightFrontFill />
         },
         {
-            option: 'fourth',
+            option: 'have_fourth_class',
             name: 'сидячий',
             icon: <MdOutlineAirlineSeatReclineExtra />
         },
         {
-            option: 'first',
+            option: 'have_first_class',
             name: 'люкс',
             icon: <MdStarRate />
         },
         {
-            option: 'wifi',
+            option: 'have_wifi',
             name: 'wi-fi',
             icon: <AiOutlineWifi />
         },
         {
-            option: 'express',
+            option: 'have_express',
             name: 'экспресс',
             icon: <FaRocket />
         }
     ];
 
     const [optionsStatus, setOptionStatus] = useState ({
-        first: false,
-        second: false,
-        third: false,
-        fourth: false,
-        wifi: false,
-        express: false
+        'have_first_class': false,
+        'have_second_class': false,
+        'have_third_class': false,
+        'have_fourth_class': false,
+        'have_wifi': false,
+        'have_express': false
     });
+
+    const dispatch = useDispatch();
 
     const optionsHandler = (opt) => {
         setOptionStatus(prev => ({...prev, [opt]: !prev[opt] }))
@@ -60,6 +64,10 @@ const OptionsHandler = () => {
     
     const activeClasses = cn(styles['switch-btn'], styles['option__item'], styles['switch-btn_active']);
     const noActiveClasses = cn(styles['switch-btn'], styles['option__item']);
+
+    useEffect(()=> {
+        dispatch(setOptions(optionsStatus));
+    }, [optionsStatus])
 
     return (
         <div className={styles['options-wrapper']}>

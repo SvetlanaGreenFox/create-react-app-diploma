@@ -3,7 +3,7 @@ import moment from 'moment';
 import { BsArrowRight } from 'react-icons/bs';
 import trainIcon from '../../../../assets/train.png';
 import arrowForward from '../../../../assets/arrowForward.png';
-// import arrowBack from '../../../../../assets/arrowBack.png';
+
 import { NavLink } from 'react-router-dom';
 
 import TimeCard from './TimeCard';

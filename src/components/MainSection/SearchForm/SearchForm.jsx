@@ -45,7 +45,7 @@ const SearchForm = () => {
 
         if (!cityFrom.name || departure !== cityFrom.name) dispatch(setCityFrom(direction.cityFrom));
         if (!cityTo.name || destination !== cityTo.name) dispatch(setCityTo(direction.cityTo));
-        
+        console.log(start, end);
         dispatch(setStartDate(start));
         dispatch(setEndDate(end));
     }

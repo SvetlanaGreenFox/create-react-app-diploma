@@ -10,10 +10,17 @@ import "react-datepicker/dist/react-datepicker.css";
 
 const DateHandler = () => {
     const { start: startDate} = useSelector(state => state.travelDate);
-
+    console.log('startDate', new Date(`${startDate}`));
     const [end, setEnd] = useState(null);
 
     const dispatch = useDispatch();
+
+    function prepareDate (date) {
+        const month = (date.getMonth() + 1).toString();
+        const prepareMonth = month.length === 1 ? `0${month}` : month; 
+        
+        return `${date.getFullYear()}-${prepareMonth}-${date.getDate()}`;
+    }
 
     return (
         <div className={styles['date-wrapper']}>
@@ -25,7 +32,7 @@ const DateHandler = () => {
                     selectsStart
                     startDate={startDate}
                     endDate={end} 
-                    onChange={(date) => dispatch(setStartDate(date))} />
+                    onChange={(date) => dispatch(setStartDate(startDate))} />
             </div>
             <div className={styles['picker-wrapper']}>
             <p className={styles['date-handler__title']}>Дата возвращения</p>
@@ -36,7 +43,7 @@ const DateHandler = () => {
                     startDate={startDate}
                     endDate={end}
                     minDate={startDate}
-                    onChange={(date) => setEnd(date)} />
+                    onChange={(date) => setEnd((date))} />
             </div> 
         </div>
     )

@@ -11,6 +11,7 @@ import TrainCard from '../TrainCard';
 const TicketList = () => {
     const { cityFrom, cityTo }= useSelector(state => state.selectedCities);
     const { start, end } = useSelector(state => state.travelDate);
+    const { options } = useSelector(state => state.selectOptions);
 
     const [tickets, setTickets] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -31,14 +32,20 @@ const TicketList = () => {
                 'from_city_id': cityFrom.id, 
                 'to_city_id': cityTo.id,
                 'date_start': start ? prepareDate(start) : {},
-                'date_start_arrival': end ? prepareDate(end) : {}
+                'date_start_arrival': end ? prepareDate(end) : {},
+                'have_first_class': options['have_first_class'] ? options['have_first_class'] : {},
+                'have_second_class': options['have_second_class'] ? options['have_second_class'] : {},
+                'have_third_class': options['have_third_class'] ? options['have_third_class'] : {},
+                'have_fourth_class': options['have_fourth_class'] ? options['have_fourth_class'] : {},
+                'have_wifi': options['have_wifi'] ? options['have_wifi'] : {},
+                'have_express': options['have_express'] ? options['have_express'] : {},
             }
         })
              .then(res => {
                 setTickets(res.data);
                 setIsLoading(false);
              })
-    }, [cityFrom, cityTo, start, end]); 
+    }, [cityFrom, cityTo, start, end, options]); 
 
     function setTrainId (id) {
         dispatch(setSelectTrain(id));

@@ -18,38 +18,38 @@ const SortMenu = () => {
         from: false
     });
 
-    const [optionStatus, setOptionStatus] = useState ([
-        {
-            name: 'купе',
-            alue: false
-        },
-        {
-            name: 'плацкарт',
-            value: false
-        },
-        {
-            name: 'сидячий',
-            value: false
-        },
-        {
-            name: 'люкс',
-            value: false
-        },
-        {
-            name: 'wi-fi',
-            value: false
-        },
-        {
-            name: 'экспресс',
-            value: false
-        }
-    ]);
+    // const [optionStatus, setOptionStatus] = useState ([
+    //     {
+    //         name: 'купе',
+    //         alue: false
+    //     },
+    //     {
+    //         name: 'плацкарт',
+    //         value: false
+    //     },
+    //     {
+    //         name: 'сидячий',
+    //         value: false
+    //     },
+    //     {
+    //         name: 'люкс',
+    //         value: false
+    //     },
+    //     {
+    //         name: 'wi-fi',
+    //         value: false
+    //     },
+    //     {
+    //         name: 'экспресс',
+    //         value: false
+    //     }
+    // ]);
 
-    function optionHandler (name) {
-        console.log(name);
-        // setState(name);
+    // function optionHandler (name) {
+    //     console.log(name);
+    //     // setState(name);
         
-    }
+    // }
 
     return (
         <section className={styles['sort-menu']}>
